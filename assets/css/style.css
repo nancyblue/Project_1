@@ -1,0 +1,64 @@
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.jumbotron {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/Mountain-Banner.png");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 650px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-inline .form-control {
+  margin-bottom: 5%;
+}
+
+#center-this {
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  width: 300px;
+}
+
+.form label {
+  margin: 5px 0;
+  color: white;
+}
+
+.hero-input {
+  height: 30px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150%;
+}
+
+#add-gif {
+  width: 150px;
+  margin-top: 5px;
+  border: 0;
+  background-color: #00EB8D;
+  padding: 10px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: #242666;
+  cursor: pointer;
+}
+
+#add-gif:hover {
+  background-color: #00FF99;
+}
