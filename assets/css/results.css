@@ -1,0 +1,56 @@
+/*
+====================
+Body
+====================
+*/
+         
+/* font-family: 'Caveat', cursive; */
+
+body {
+    font-family: 'Questrial', sans-serif;
+}
+
+/*
+====================
+Trip Details Bar
+====================
+*/
+
+.trip-bar {
+    padding: 8px 20px 8px 20px;
+    border-top: 3px solid #ededed;
+    border-bottom: 3px solid #ededed;
+}
+
+.trip-details {
+    padding-top: 7px;
+}
+
+#carry-destination,
+#carry-date {
+    display: inline;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.btn {
+    float: right;
+}
+
+#save-trip {
+    margin-right: 5px;
+}
+
+/*
+=====================
+Results Area
+=====================
+*/
+h1 {
+    font-weight: 100;
+    font-size: 2rem;
+}
+
+.populate {
+    margin-top: 15px;
+}
