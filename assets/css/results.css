@@ -8,6 +8,8 @@ Body
 
 body {
     font-family: 'Questrial', sans-serif;
+    background-image: url("galen-crout-78522-unsplash.jpg");
+    background-size: cover;
 }
 
 /*
@@ -18,8 +20,8 @@ Trip Details Bar
 
 .trip-bar {
     padding: 8px 20px 8px 20px;
-    border-top: 3px solid #ededed;
-    border-bottom: 3px solid #ededed;
+    border-top: 3px solid #9d9ea0;
+    border-bottom: 3px solid #9d9ea0;
 }
 
 .trip-details {
