@@ -1,3 +1,5 @@
+//hike api key
+//200432797-9adce9a5420c2e2c01a8fe63186f4f81
 //loqate
 //TC99-ZF99-RY89-DD72
 
