@@ -9,6 +9,11 @@
     <!-- Bootstrap Stylesheet -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Google Fonts:
+         font-family: 'Questrial', sans-serif;
+         font-family: 'Caveat', cursive; -->
+    <link href="https://fonts.googleapis.com/css?family=Caveat|Questrial" rel="stylesheet">
+
     <!-- Link to CSS style sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -19,21 +24,12 @@
   </head>
   <body>
     <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Trails</a>
-            <a class="nav-item nav-link" href="#">Weather</a>
-          </div>
-        </div>
+      <nav class="navbar navbar-expand-lg">
+        <h1>TrailFolk</h1>
       </nav>
     </div>
     <div class="jumbotron jumbotron-fluid">
+      <h1>Start Your Journey Today!</h1>
       <div class="form">
         <div class="form-section-small">
           <label for="firstNameData">First Name</label>
@@ -49,11 +45,11 @@
         </div>
         <div class="form-section-small">
           <label for="startDateData">Start Date</label>
-          <input type="text" class="hero-input-box" id = "startDateData">
+          <input type="date" class="hero-input-box" id = "startDateData">
         </div>
         <div class="form-section-small">
           <label for="endDateData">End Date</label>
-          <input type="text" class="hero-input-box" id = "endDateData">
+          <input type="date" class="hero-input-box" id = "endDateData">
         </div>
         <input id="submit-button" type="submit" value="Submit">
       </div>

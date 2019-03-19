@@ -1,4 +1,13 @@
+.navbar-expand-lg {
+  justify-content: center;
+  background-color: #368B36;
+  font-family: 'Caveat', cursive;
+  color: white;
+}
 
+.navbar-expand-lg h1 {
+  font-size: 3rem;
+}
 
 .container-fluid {
   padding-right: 0;
@@ -17,6 +26,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.jumbotron h1 {
+  margin-bottom: 60px;
+  font-size: 4rem;
+  font-family: 'Questrial', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .form-inline .form-control {
@@ -37,6 +55,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
   border-radius: 5px;
+  font-family: 'Questrial', sans-serif;
+  letter-spacing: .5px;
 }
 
 input {
@@ -63,18 +83,18 @@ input {
   width: 100%;
   margin-top: 10px;
   border: 0;
-  background-color: #00EB8D;
+  background-color: #368B36;
   padding: 10px 0;
   font-size: 16px;
   letter-spacing: 1px;
   font-weight: bold;
   border-radius: 5px;
-  color: #242666;
+  color: white;
   cursor: pointer;
 }
 
 #submit-button:hover {
-  background-color: #00FF99;
+  background-color: #40A340;
 }
 
 .form-section-small {
