@@ -46,8 +46,9 @@ function renderWeather () {
 
     })
 
-var pastDate = "2019-04-23"; //date the user enters
-pastDate = moment().subtract(1, 'years').format('YYYY-MM-DDTHH:mm:ss');
+var someDate = "2019-04-23"; //date the user enters
+var someFormat = "YYYY-MM-DD";
+var pastDate = moment(someDate, someFormat).subtract(1, 'years').format('YYYY-MM-DDTHH:mm:ss');
 console.log(pastDate);
 var pastQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + lat + "," + long + "," + pastDate + "?exclude=currently,minutely,hourly,alerts,flags";
 
