@@ -4,7 +4,18 @@
 //TC99-ZF99-RY89-DD72
 
 $(document).ready(function () {
-    // debugger;
+    // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBDtXNSFpOSO9f2MUuhNeoqLkgVXy4m8jQ",
+    authDomain: "project-1-326d1.firebaseapp.com",
+    databaseURL: "https://project-1-326d1.firebaseio.com",
+    projectId: "project-1-326d1",
+    storageBucket: "project-1-326d1.appspot.com",
+    messagingSenderId: "478932001495"
+  };
+  firebase.initializeApp(config);
+
+
 
     var lat;
     var long;
