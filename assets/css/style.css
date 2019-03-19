@@ -1,0 +1,135 @@
+body {
+  font-family: 'Questrial', sans-serif;
+  color: #191919;
+}
+
+.navbar-expand-lg {
+  justify-content: center;
+  background-color: #368B36;
+  font-family: 'Caveat', cursive;
+  color: white;
+}
+.navbar-expand-lg h1 {
+  font-size: 3rem;
+}
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.jumbotron {
+  background-image: url("../images/Mountain-Banner.png");
+  height: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 650px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.jumbotron h1 {
+  margin-bottom: 60px;
+  font-size: 4rem;
+  font-family: 'Questrial', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.form-inline .form-control {
+  margin-bottom: 5%;
+}
+#center-this {
+  margin: 0 auto;
+}
+.form {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: row;
+  width: 30%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+  font-family: 'Questrial', sans-serif;
+  letter-spacing: .5px;
+}
+input {
+  margin-bottom: 5px;
+}
+.form label {
+  color: white;
+}
+.hero-input-box {
+  height: 30px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
+#cityData {
+  margin-bottom: 5px;
+}
+#submit-button {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  background-color: #368B36;
+  padding: 10px 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+#submit-button:hover {
+  background-color: #40A340;
+}
+.form-section-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 48%;
+}
+.form-section-large {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Body Content */
+.body-content {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.body-content h1 {
+  padding-bottom: 5px;
+  /* display: block; */
+  border-bottom: 3px solid #191919;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.trailContainer {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 20px;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 10px;
+}
+
+.weatherContainer {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 20px;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 10px;
+}
