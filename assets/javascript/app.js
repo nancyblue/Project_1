@@ -4,10 +4,9 @@
 //loqate api key
 //TC99-ZF99-RY89-DD72
 
-$(document).ready(function(){
+function renderTrails(latitude, longitude){
     //change limit to 30 
-    - .9876
-    var queryURL = "https://www.hikingproject.com/data/get-trails?lat=30.267&lon=-97.7431&maxDistance=30&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81"
+    var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon="+ longitude + "&maxDistance=30&maxResults=30&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81"
 
     $.ajax({
         url : queryURL,
@@ -43,4 +42,4 @@ $(document).ready(function(){
             
         
     });
-})
+}
