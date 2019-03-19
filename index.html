@@ -23,14 +23,27 @@
     <title></title>
   </head>
   <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg">
-        <h1>TrailFolk</h1>
-      </nav>
-    </div>
+    <nav class="navbar navbar-expand-lg">
+      <h1>TrailFolk</h1>
+    </nav>
     <div class="jumbotron jumbotron-fluid">
-      <h1>Start Your Journey Today!</h1>
-      <div class="form">
+      <div class="container">
+        <div class="row">
+          <h1 style="text-align: center; margin: 0 auto;">Start Your Journey Today!</h1>
+        </div>
+        <form style="margin: 0 auto;">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="firstNameData">First Name</label>
+              <input type="text" class="form-control" id="firstNameData" placeholder="john">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="firstNameData">First Name</label>
+              <input type="text" class="form-control" id="firstNameData" placeholder="john">
+            </div>
+          </div>
+        </form>
+      <!-- <div class="form">
         <div class="form-section-small">
           <label for="firstNameData">First Name</label>
           <input type="text" class="hero-input-box" id = "firstNameData">
@@ -47,10 +60,6 @@
           <label for="searchRadiusData">Search Radius</label>
           <input type="text" class="hero-input-box" id = "searchRadiusData">
         </div>
-        <!-- <div class="form-section-large">
-          <label for="cityData">City</label>
-          <input type="text" class="hero-input-box" id = "cityData">
-        </div> -->
         <div class="form-section-small">
           <label for="startDateData">Start Date</label>
           <input type="date" class="hero-input-box" id = "startDateData">
@@ -60,6 +69,7 @@
           <input type="date" class="hero-input-box" id = "endDateData">
         </div>
         <input id="submit-button" type="submit" value="Submit">
+      </div> -->
       </div>
     </div>
     <div class="body-content">

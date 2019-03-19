@@ -28,10 +28,10 @@ body {
   position: relative;
   height: 650px;
   background-size: cover;
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
 
 .jumbotron h1 {
