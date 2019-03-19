@@ -11,9 +11,9 @@ $(document).ready(function () {
     $("#submit-button").on("click", function () {
         debugger;
 
-        var location = $("#cityData").val();
-        console.log(location)
-        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + location
+        var city = $("#cityData").val();
+        console.log(city)
+        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + city
 
         $.ajax({
             url: queryURL2,
