@@ -1,34 +1,45 @@
+//hike api key
 //200432797-9adce9a5420c2e2c01a8fe63186f4f81
 
-//loqate 
+//loqate api key
 //TC99-ZF99-RY89-DD72
 
 $(document).ready(function(){
-
-    var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=Chicago"
-    // lat = latitude 
-    // long = longitude
+    //change limit to 30 
+    - .9876
     var queryURL = "https://www.hikingproject.com/data/get-trails?lat=30.267&lon=-97.7431&maxDistance=30&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81"
-
-    // $.ajax({
-    //     url : queryURL2,
-    //     method: "GET"
-    // }).then(function(response1){
-    //     console.log(response1)
-    //     //set the lat = response.items[0].latitude
-    //     //set long = response.item[0].longitude
-    // });
 
     $.ajax({
         url : queryURL,
         method: "GET"
-    }).then(function(response2){
-        console.log(response2)
-        //for loop 
-            //take the information from the aray (30)
-            //for each item make a div
-            //we will have a p tag to hold the trail name 
-            //we will have a p tag to hold the ascent 
+    }).then(function(response){
+        console.log(response);
+        var results = response.data;
+        //for loop
+        for (var i = 0; i < results.length; i++) {
+        //take the information from the aray (30)
+        //for each item make a div
+        var trailDiv = $("<div class='trailDiv>'");
+        //trail name
+        var p1 = $("<p>").text("Trail Name: " + results[i].name);
+        //location
+        var p2 = $("<p>").text("Location: " + results[i].location);
+        //difficulty 
+        var p3 = $("<p>").text("Difficulty: " + results[i].difficulty);
+        //condition details 
+        var p4 = $("<p>").text("Trail Condition: " + results[i].conditionDetails);
+        //ascent 
+        var p5 = $("<p>").text("Ascent (Feet): " + results[i].ascent);
+        //length
+        var p6 = $("<p>").text("Length (Miles): " + results[i].length);
+        //img small
+        var image = $("<img>").attr("src", results[i].imgSmall);
+
+        trailDiv.append(p1, p2, p3, p4, p5, p6, image);
+
+        $("#populate-hike").append(trailDiv);
+
+        }
             
         
     });
