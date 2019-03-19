@@ -5,27 +5,35 @@
 
 $(document).ready(function () {
     // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBDtXNSFpOSO9f2MUuhNeoqLkgVXy4m8jQ",
-    authDomain: "project-1-326d1.firebaseapp.com",
-    databaseURL: "https://project-1-326d1.firebaseio.com",
-    projectId: "project-1-326d1",
-    storageBucket: "project-1-326d1.appspot.com",
-    messagingSenderId: "478932001495"
-  };
-  firebase.initializeApp(config);
+    var config = {
+        apiKey: "AIzaSyBDtXNSFpOSO9f2MUuhNeoqLkgVXy4m8jQ",
+        authDomain: "project-1-326d1.firebaseapp.com",
+        databaseURL: "https://project-1-326d1.firebaseio.com",
+        projectId: "project-1-326d1",
+        storageBucket: "project-1-326d1.appspot.com",
+        messagingSenderId: "478932001495"
+    };
+    firebase.initializeApp(config);
 
+    //create a variable to reference the database 
+    var database = firebase.database();
 
-
+    
     var lat;
     var long;
     console.log(lat + "empty")
 
-    $("#submit-button").on("click", function () {
-        debugger;
+    $("#submit-button").on("click", function () {;
 
         var city = $("#cityData").val();
         console.log(city)
+
+        //---Firebase---
+        database.ref("/citySearch").push(city)
+
+
+
+        //---Loqate---
         var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + city
 
         $.ajax({
@@ -52,6 +60,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
+            //------change data to say items-----
             var results = response.data;
             //for loop
             for (var i = 0; i < results.length; i++) {
