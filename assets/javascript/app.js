@@ -72,5 +72,4 @@ $(document).ready(function () {
         });
     }
 
-    // renderTrails(lat, long);
 })
