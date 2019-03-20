@@ -83,7 +83,7 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++) {
                 //take the information from the aray (30)
                 //for each item make a div
-                var trailDiv = $("<div class='trailDiv></div>'");
+                var trailDiv = $("<div class='trailDiv'></div>");
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
@@ -99,9 +99,9 @@ $(document).ready(function () {
                 //img small
                 var image = $("<img>").attr("src", results[i].imgSmall);
 
-                trailDiv.append(p1, p2, p3, p4, p5, p6, image);
+                trailDiv.append(image, p1, p2, p6, p3, p4, p5);
 
-                $(".trailData").append(trailDiv);
+                $("#populateHikes").append(trailDiv);
             }
 
         });
@@ -122,13 +122,25 @@ $(document).ready(function () {
             var results = response2.trails;
             for (var i = 0; i < results.length; i++) {
 
-                var bikeDiv = $("<div class='bikeDiv>'");
+                var bikeDiv = $("<div class='bikeDiv'></div>");
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
-                bikeDiv.append(p1);
+                var p2 = $("<p>").text("Location: " + results[i].location);
+                //difficulty 
+                var p3 = $("<p>").text("Difficulty: " + results[i].difficulty);
+                //condition details 
+                var p4 = $("<p>").text("Trail Condition: " + results[i].conditionDetails);
+                //ascent 
+                var p5 = $("<p>").text("Ascent (Feet): " + results[i].ascent);
+                //length
+                var p6 = $("<p>").text("Length (Miles): " + results[i].length);
+                //img small
+                var image = $("<img>").attr("src", results[i].imgSmall);
 
-                $("#populate-bike").append(bikeDiv);
+                bikeDiv.append(image, p1, p2, p6, p3, p4, p5);
+                
+                $("#populateBikes").append(bikeDiv);
             }
         })
     }
