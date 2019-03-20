@@ -6,7 +6,6 @@ $(document).ready(function () {
 
     var lat;
     var long;
-    console.log(lat + "empty")
 
     $("#submit-button").on("click", function () {
         debugger;
@@ -26,9 +25,9 @@ $(document).ready(function () {
                 console.log("lat is" + lat);
                 console.log("long is" + long);
                 renderTrails(lat, long);
+                renderBikes(lat, long);
             });
     });
-
 
     function renderTrails(latitude, longitude) {
         //change limit to 30 
@@ -66,9 +65,23 @@ $(document).ready(function () {
 
             }
 
-
         });
     }
 
-    // renderTrails(lat, long);
+    function renderBikes(latitude, longitude){
+
+        // api key : 200433687-089c275b485af4ffdbd3dd1efd4536fc
+        // https://www.mtbproject.com/data
+
+        var queryURL3 = "https://www.mtbproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=10&key=200433687-089c275b485af4ffdbd3dd1efd4536fc"
+
+        $.ajax({
+            url: queryURL3,
+            method: "GET"
+        }).then(function (response2){
+            console.log(response2);
+        })
+    }
+
+
 })
