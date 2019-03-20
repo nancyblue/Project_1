@@ -18,6 +18,7 @@
 
     <!-- Link to CSS style sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/post-search.css">
 
     <title></title>
   </head>
@@ -53,21 +54,82 @@
         <input id="submit-button" type="submit" value="Submit">
       </div>
     </div>
-    <div class="body-content">
+
+
+    <!-- Make this appear by using id bg-fill -->
+    <div class="main-content-background" id="application-fill">
+      <div class="primary-column">
+        <!-- Weather goes here -->
+        <div class="body-container" id="populateWeather">
+        </div>
+        <!-- Hikes go here  -->
+        <div class="body-container" id="populateHikes">
+          <h1>Hello 1</h1>
+        </div>
+        <!-- Biking goes here -->
+        <div class="body-container" id="populateBikes">
+        </div>
+
+      </div>
+      <div class="sidebar">
+        <div class="edit-parameters">
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="cityData">City</label>
+              <input type="text" class="sidebar-imput-box" id = "cityData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="searchRadiusData">Search Radius</label>
+              <input type="number" class="sidebar-imput-box" id = "searchRadiusData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="searchRadiusData">Zip Code</label>
+              <input type="number" class="sidebar-imput-box" id = "zipCodeData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="startDateData">Start Date</label>
+              <input type="date" class="sidebar-imput-box" id = "startDateData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="endDateData">End Date</label>
+              <input type="date" class="sidebar-imput-box" id = "endDateData">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- DO NOT TOUCH BELOW THIS LINE -->
+    <!-- <div class="body-content">
       <h1>Your Trip Details</h1>
       <div class="trailContainer">
         <h2>Trail Recommendations</h2>
         <div class="trailData">
-          <!-- Populate trail information here, it could be a table or anything really we can discuss -->
         </div>
       </div>
       <div class="weatherContainer">
         <h2>Weather</h2>
         <div class="weatherData">
-          <!-- Populate weather data here! -->
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- JS app link -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
