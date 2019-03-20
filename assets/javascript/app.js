@@ -42,13 +42,13 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response1) {
             console.log(response1);
-
             lat = response1.Items[0].Latitude;
             long = response1.Items[0].Longitude;
             console.log("lat is" + lat);
             console.log("long is" + long);
             renderTrails(lat, long);
             renderweather(lat, long);
+            renderBikes(lat, long);
         });
     });
 
@@ -62,7 +62,6 @@ $(document).ready(function () {
         cityDiv.append(cityText);
         //this is where we will append it to the specified div in the html 
     });
-
 
     function renderTrails(latitude, longitude) {
         //change limit to 30 
@@ -100,17 +99,35 @@ $(document).ready(function () {
                 $(".trailData").append(trailDiv);
             }
 
-
         });
     }
+    function renderBikes(latitude, longitude) {
+
+        // api key : 200433687-089c275b485af4ffdbd3dd1efd4536fc
+        // https://www.mtbproject.com/data
+
+        var queryURL3 = "https://www.mtbproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=10&key=200433687-089c275b485af4ffdbd3dd1efd4536fc"
+
+        $.ajax({
+            url: queryURL3,
+            method: "GET"
+        }).then(function (response2) {
+            console.log(response2);
+            var results = response2.trails;
+            for (var i = 0; i < results.length; i++) {
+
+                var bikeDiv = $("<div class='bikeDiv>'");
+                //trail name
+                var p1 = $("<p>").text("Trail Name: " + results[i].name);
+                //location
+                trailDiv.append(p1);
+
+                $("#populate-bike").append(trailDiv);
+            }
+        })
+    }
+})
     
-
-
-    // renderTrails(lat, long);
-
-
-
-
 var skycons = new Skycons({"color": "gray"});
 
 function renderWeather () {
@@ -175,3 +192,4 @@ var pastQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.n
 }
 
 })
+
