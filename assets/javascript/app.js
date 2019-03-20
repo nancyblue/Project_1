@@ -145,6 +145,9 @@ $(document).ready(function () {
         }).then(function(response){
             console.log(response);
 
+            var weather0 = $("<div id= 'populate-current-weather'></div>");
+            $("#populateWeather").append(weather0);
+
             var canvasAttr = {
                 id: "icon0",
                 width: "45px",
@@ -170,12 +173,14 @@ $(document).ready(function () {
         console.log(day1);
         var futureQueryURL1 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day1;
 
-
             $.ajax({
                 url: futureQueryURL1,
                 method: "GET"
             }).then(function(response){
                 console.log(response);
+
+                var weather1 = $("<div id= 'populate-future-weather-1'></div>");
+                $("#populateWeather").append(weather1);
 
                 var day1Converted = moment(startDate, dateFormat).format('MMM Do');
                 $("#populate-future-weather-1").prepend(day1Converted + "<br>");
@@ -210,6 +215,9 @@ $(document).ready(function () {
             }).then(function(response){
                 console.log(response);
 
+                var weather2 = $("<div id= 'populate-future-weather-2'></div>");
+                $("#populateWeather").append(weather2);
+
                 var day2Converted = moment(startDate, dateFormat).add(1, 'days').format('MMM Do');
                 $("#populate-future-weather-2").prepend(day2Converted + "<br>");
 
@@ -242,6 +250,9 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function(response){
                 console.log(response);
+
+                var weather3 = $("<div id= 'populate-future-weather-3'></div>");
+                $("#populateWeather").append(weather3);
 
                 var day3Converted = moment(startDate, dateFormat).add(2, 'days').format('MMM Do');
                 $("#populate-future-weather-3").prepend(day3Converted + "<br>");
@@ -276,6 +287,9 @@ $(document).ready(function () {
             }).then(function(response){
                 console.log(response);
 
+                var weather4 = $("<div id= 'populate-future-weather-4'></div>");
+                $("#populateWeather").append(weather4);
+
                 var day4Converted = moment(startDate, dateFormat).add(3, 'days').format('MMM Do');
                 $("#populate-future-weather-4").prepend(day4Converted + "<br>");
 
@@ -308,6 +322,9 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function(response){
                 console.log(response);
+
+                var weather5 = $("<div id= 'populate-future-weather-5'></div>");
+                $("#populateWeather").append(weather5);
 
                 var day5Converted = moment(startDate, dateFormat).add(4, 'days').format('MMM Do');
                 $("#populate-future-weather-5").prepend(day5Converted + "<br>");
@@ -342,6 +359,9 @@ $(document).ready(function () {
             }).then(function(response){
                 console.log(response);
 
+                var weather6 = $("<div id= 'populate-future-weather-6'></div>");
+                $("#populateWeather").append(weather6);
+
                 var day6Converted = moment(startDate, dateFormat).add(5, 'days').format('MMM Do');
                 $("#populate-future-weather-6").prepend(day6Converted + "<br>");
 
@@ -374,6 +394,9 @@ $(document).ready(function () {
                 method: "GET"
             }).then(function(response){
                 console.log(response);
+
+                var weather7 = $("<div id= 'populate-future-weather-7'></div>");
+                $("#populateWeather").append(weather7);
 
                 var day7Converted = moment(startDate, dateFormat).add(6, 'days').format('MMM Do');
                 $("#populate-future-weather-7").prepend(day7Converted + "<br>");
