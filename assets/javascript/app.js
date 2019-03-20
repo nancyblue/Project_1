@@ -393,5 +393,5 @@ function renderWeather () {
         })
 
     }
-})
+// })
 
