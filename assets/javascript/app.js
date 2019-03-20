@@ -53,7 +53,7 @@ $(document).ready(function () {
             renderTrails(lat, long);
             renderBikes(lat, long);
             renderWeather(lat, long);
-
+            
         });
     });
 
@@ -126,299 +126,289 @@ $(document).ready(function () {
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
-                bikeDiv.append(p1);
+                var p2 = $("<p>").text("Location: " + results[i].location);
+                //difficulty 
+                var p3 = $("<p>").text("Difficulty: " + results[i].difficulty);
+                //condition details 
+                var p4 = $("<p>").text("Trail Condition: " + results[i].conditionDetails);
+                //ascent 
+                var p5 = $("<p>").text("Ascent (Feet): " + results[i].ascent);
+                //length
+                var p6 = $("<p>").text("Length (Miles): " + results[i].length);
+                //img small
+                var image = $("<img>").attr("src", results[i].imgSmall);
 
+                bikeDiv.append(image, p1, p2, p6, p3, p4, p5);
+                
                 $("#populateBikes").append(bikeDiv);
             }
         })
     }
+})
+    
+var skycons = new Skycons({"color": "gray"});
 
-    var skycons = new Skycons({"color": "green"});
+function renderWeather () {
+    
+    var currentQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "?exclude=minutely,hourly,alerts,flags";
+    
+    $.ajax({
+        url: currentQueryURL,
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
 
-    function renderWeather (latitude, longitude) {
-        
-        var currentQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "?exclude=minutely,hourly,alerts,flags";
-        
+        var canvasAttr = {
+            id: "icon0",
+            width: "45px",
+            height: "45px"
+        }
+        var icon = $("<canvas>").attr(canvasAttr);
+        $("#populate-current-weather").append(icon);
+        skycons.add("icon0", response.currently.icon);
+        skycons.play();
+
+        var temp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.currently.temperature) + "°F");
+        $("#populate-current-weather").append(temp);
+        var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
+        $("#populate-current-weather").append(currentSummary);
+    })
+
+    //DAY 1
+    // var startDate = "2019-12-23";
+    var startDate = $("#startDateData").val(); //date the user enters
+    console.log(startDate); 
+    var dateFormat = "YYYY-MM-DD";
+    var day1 = moment(startDate, dateFormat).subtract(2, 'years').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day1);
+    var futureQueryURL1 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day1;
+
+
         $.ajax({
-            url: currentQueryURL,
+            url: futureQueryURL1,
             method: "GET"
         }).then(function(response){
             console.log(response);
 
-            var weather0 = $("<div id= 'populate-current-weather'></div>");
-            $("#populateWeather").append(weather0);
+            var day1Converted = moment(startDate, dateFormat).format('MMM Do');
+            $("#populate-future-weather-1").prepend(day1Converted + "<br>");
 
             var canvasAttr = {
-                id: "icon0",
+                id: "icon1",
                 width: "45px",
                 height: "45px"
             }
             var icon = $("<canvas>").attr(canvasAttr);
-            $("#populate-current-weather").append(icon);
-            skycons.add("icon0", response.currently.icon);
+            $("#populate-future-weather-1").append(icon);
+            skycons.add("icon1", response.daily.data[0].icon);
             skycons.play();
 
-            var temp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.currently.temperature) + "°F");
-            $("#populate-current-weather").append(temp);
-            var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
-            $("#populate-current-weather").append(currentSummary);
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-1").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-1").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-1").append(dailySummary);
         })
 
-        //DAY 1
-        // var startDate = "2019-12-23";
-        var startDate = $("#startDateData").val(); //date the user enters
-        console.log(startDate); 
-        var dateFormat = "YYYY-MM-DD";
-        var day1 = moment(startDate, dateFormat).subtract(2, 'years').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day1);
-        var futureQueryURL1 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day1;
+    //DAY 2
 
-            $.ajax({
-                url: futureQueryURL1,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
+    var day2 = moment(startDate, dateFormat).subtract(2, 'years').add(1, 'days').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day2);
+    var futureQueryURL2 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day2;
 
-                var weather1 = $("<div id= 'populate-future-weather-1'></div>");
-                $("#populateWeather").append(weather1);
+        $.ajax({
+            url: futureQueryURL2,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-                var day1Converted = moment(startDate, dateFormat).format('MMM Do');
-                $("#populate-future-weather-1").prepend(day1Converted + "<br>");
+            var day2Converted = moment(startDate, dateFormat).add(1, 'days').format('MMM Do');
+            $("#populate-future-weather-2").prepend(day2Converted + "<br>");
 
-                var canvasAttr = {
-                    id: "icon1",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-1").append(icon);
-                skycons.add("icon1", response.daily.data[0].icon);
-                skycons.play();
+            var canvasAttr = {
+                id: "icon2",
+                width: "45px",
+                height: "45px"
+            }
+            var icon = $("<canvas>").attr(canvasAttr);
+            $("#populate-future-weather-2").append(icon);
+            skycons.add("icon2", response.daily.data[0].icon);
+            skycons.play();
 
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-1").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-1").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-1").append(dailySummary);
-            })
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-2").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-2").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-2").append(dailySummary);
+        })
 
-        //DAY 2
+    //DAY 3
 
-        var day2 = moment(startDate, dateFormat).subtract(2, 'years').add(1, 'days').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day2);
-        var futureQueryURL2 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day2;
+    var day3 = moment(startDate, dateFormat).subtract(2, 'years').add(2, 'days').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day3);
+    var futureQueryURL3 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day3;
 
-            $.ajax({
-                url: futureQueryURL2,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
+        $.ajax({
+            url: futureQueryURL3,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-                var weather2 = $("<div id= 'populate-future-weather-2'></div>");
-                $("#populateWeather").append(weather2);
+            var day3Converted = moment(startDate, dateFormat).add(2, 'days').format('MMM Do');
+            $("#populate-future-weather-3").prepend(day3Converted + "<br>");
 
-                var day2Converted = moment(startDate, dateFormat).add(1, 'days').format('MMM Do');
-                $("#populate-future-weather-2").prepend(day2Converted + "<br>");
+            var canvasAttr = {
+                id: "icon3",
+                width: "45px",
+                height: "45px"
+            }
+            var icon = $("<canvas>").attr(canvasAttr);
+            $("#populate-future-weather-3").append(icon);
+            skycons.add("icon3", response.daily.data[0].icon);
+            skycons.play();
 
-                var canvasAttr = {
-                    id: "icon2",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-2").append(icon);
-                skycons.add("icon2", response.daily.data[0].icon);
-                skycons.play();
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-3").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-3").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-3").append(dailySummary);
+        })
 
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-2").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-2").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-2").append(dailySummary);
-            })
+    //DAY 4
 
-        //DAY 3
+    var day4 = moment(startDate, dateFormat).subtract(2, 'years').add(3, 'days').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day4);
+    var futureQueryURL4 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day4;
 
-        var day3 = moment(startDate, dateFormat).subtract(2, 'years').add(2, 'days').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day3);
-        var futureQueryURL3 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day3;
+        $.ajax({
+            url: futureQueryURL4,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-            $.ajax({
-                url: futureQueryURL3,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
+            var day4Converted = moment(startDate, dateFormat).add(3, 'days').format('MMM Do');
+            $("#populate-future-weather-4").prepend(day4Converted + "<br>");
 
-                var weather3 = $("<div id= 'populate-future-weather-3'></div>");
-                $("#populateWeather").append(weather3);
+            var canvasAttr = {
+                id: "icon4",
+                width: "45px",
+                height: "45px"
+            }
+            var icon = $("<canvas>").attr(canvasAttr);
+            $("#populate-future-weather-4").append(icon);
+            skycons.add("icon4", response.daily.data[0].icon);
+            skycons.play();
 
-                var day3Converted = moment(startDate, dateFormat).add(2, 'days').format('MMM Do');
-                $("#populate-future-weather-3").prepend(day3Converted + "<br>");
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-4").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-4").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-4").append(dailySummary);
+        })
 
-                var canvasAttr = {
-                    id: "icon3",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-3").append(icon);
-                skycons.add("icon3", response.daily.data[0].icon);
-                skycons.play();
+    //DAY 5
 
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-3").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-3").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-3").append(dailySummary);
-            })
+    var day5 = moment(startDate, dateFormat).subtract(2, 'years').add(4, 'days').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day5);
+    var futureQueryURL5 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day5;
 
-        //DAY 4
+        $.ajax({
+            url: futureQueryURL5,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-        var day4 = moment(startDate, dateFormat).subtract(2, 'years').add(3, 'days').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day4);
-        var futureQueryURL4 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day4;
+            var day5Converted = moment(startDate, dateFormat).add(4, 'days').format('MMM Do');
+            $("#populate-future-weather-5").prepend(day5Converted + "<br>");
 
-            $.ajax({
-                url: futureQueryURL4,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
+            var canvasAttr = {
+                id: "icon5",
+                width: "45px",
+                height: "45px"
+            }
+            var icon = $("<canvas>").attr(canvasAttr);
+            $("#populate-future-weather-5").append(icon);
+            skycons.add("icon5", response.daily.data[0].icon);
+            skycons.play();
 
-                var weather4 = $("<div id= 'populate-future-weather-4'></div>");
-                $("#populateWeather").append(weather4);
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-5").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-5").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-5").append(dailySummary);
+        })
 
-                var day4Converted = moment(startDate, dateFormat).add(3, 'days').format('MMM Do');
-                $("#populate-future-weather-4").prepend(day4Converted + "<br>");
+    //DAY 6
 
-                var canvasAttr = {
-                    id: "icon4",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-4").append(icon);
-                skycons.add("icon4", response.daily.data[0].icon);
-                skycons.play();
+    var day6 = moment(startDate, dateFormat).subtract(2, 'years').add(5, 'days').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day6);
+    var futureQueryURL6 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day6;
 
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-4").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-4").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-4").append(dailySummary);
-            })
+        $.ajax({
+            url: futureQueryURL6,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-        //DAY 5
+            var day6Converted = moment(startDate, dateFormat).add(5, 'days').format('MMM Do');
+            $("#populate-future-weather-6").prepend(day6Converted + "<br>");
 
-        var day5 = moment(startDate, dateFormat).subtract(2, 'years').add(4, 'days').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day5);
-        var futureQueryURL5 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day5;
+            var canvasAttr = {
+                id: "icon6",
+                width: "45px",
+                height: "45px"
+            }
+            var icon = $("<canvas>").attr(canvasAttr);
+            $("#populate-future-weather-6").append(icon);
+            skycons.add("icon6", response.daily.data[0].icon);
+            skycons.play();
 
-            $.ajax({
-                url: futureQueryURL5,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-6").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-6").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-6").append(dailySummary);
+        })
 
-                var weather5 = $("<div id= 'populate-future-weather-5'></div>");
-                $("#populateWeather").append(weather5);
+    //DAY 7
 
-                var day5Converted = moment(startDate, dateFormat).add(4, 'days').format('MMM Do');
-                $("#populate-future-weather-5").prepend(day5Converted + "<br>");
+    var day7 = moment(startDate, dateFormat).subtract(2, 'years').add(6, 'days').format('YYYY-MM-DDTHH:mm:ss');
+    console.log(day7);
+    var futureQueryURL7 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day7;
 
-                var canvasAttr = {
-                    id: "icon5",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-5").append(icon);
-                skycons.add("icon5", response.daily.data[0].icon);
-                skycons.play();
+        $.ajax({
+            url: futureQueryURL7,
+            method: "GET"
+        }).then(function(response){
+            console.log(response);
 
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-5").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-5").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-5").append(dailySummary);
-            })
+            var day7Converted = moment(startDate, dateFormat).add(6, 'days').format('MMM Do');
+            $("#populate-future-weather-7").prepend(day7Converted + "<br>");
 
-        //DAY 6
+            var canvasAttr = {
+                id: "icon7",
+                width: "45px",
+                height: "45px"
+            }
+            var icon = $("<canvas>").attr(canvasAttr);
+            $("#populate-future-weather-7").append(icon);
+            skycons.add("icon7", response.daily.data[0].icon);
+            skycons.play();
 
-        var day6 = moment(startDate, dateFormat).subtract(2, 'years').add(5, 'days').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day6);
-        var futureQueryURL6 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day6;
+            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            $("#populate-future-weather-7").append(maxTemp);
+            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            $("#populate-future-weather-7").append(minTemp);
+            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            $("#populate-future-weather-7").append(dailySummary);
+        })
 
-            $.ajax({
-                url: futureQueryURL6,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
+    }
 
-                var weather6 = $("<div id= 'populate-future-weather-6'></div>");
-                $("#populateWeather").append(weather6);
 
-                var day6Converted = moment(startDate, dateFormat).add(5, 'days').format('MMM Do');
-                $("#populate-future-weather-6").prepend(day6Converted + "<br>");
-
-                var canvasAttr = {
-                    id: "icon6",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-6").append(icon);
-                skycons.add("icon6", response.daily.data[0].icon);
-                skycons.play();
-
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-6").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-6").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-6").append(dailySummary);
-            })
-
-        //DAY 7
-
-        var day7 = moment(startDate, dateFormat).subtract(2, 'years').add(6, 'days').format('YYYY-MM-DDTHH:mm:ss');
-        console.log(day7);
-        var futureQueryURL7 = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + day7;
-
-            $.ajax({
-                url: futureQueryURL7,
-                method: "GET"
-            }).then(function(response){
-                console.log(response);
-
-                var weather7 = $("<div id= 'populate-future-weather-7'></div>");
-                $("#populateWeather").append(weather7);
-
-                var day7Converted = moment(startDate, dateFormat).add(6, 'days').format('MMM Do');
-                $("#populate-future-weather-7").prepend(day7Converted + "<br>");
-
-                var canvasAttr = {
-                    id: "icon7",
-                    width: "45px",
-                    height: "45px"
-                }
-                var icon = $("<canvas>").attr(canvasAttr);
-                $("#populate-future-weather-7").append(icon);
-                skycons.add("icon7", response.daily.data[0].icon);
-                skycons.play();
-
-                var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-                $("#populate-future-weather-7").append(maxTemp);
-                var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-                $("#populate-future-weather-7").append(minTemp);
-                var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                $("#populate-future-weather-7").append(dailySummary);
-            })
-
-        }
-
-    })
