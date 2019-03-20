@@ -80,7 +80,7 @@ $(document).ready(function () {
 
             var results = response.trails;
             var trailArray = [];
-            var trailLength = [];
+            var trailDescent = [];
             var trailAscent = [];
 
             //for loop to push our trail names to an array
@@ -89,7 +89,7 @@ $(document).ready(function () {
             }
             //for loop to push our trail length to an array
             for (var i = 0; i < results.length; i++){
-                trailLength.push(results[i].length);  
+                trailDescent.push(results[i].descent);  
             }
             //for loop to push our trail ascent to an array
             for (var i = 0; i < results.length; i++){
@@ -103,10 +103,10 @@ $(document).ready(function () {
                 data: {
                     labels: trailArray,
                     datasets:[{
-                        label: "Length",
+                        label: "Descent",
                         borderColor: "red",
                         backgroundColor: "red",
-                        data: trailLength,
+                        data: trailDescent,
 
                         }, 
                         {                        
