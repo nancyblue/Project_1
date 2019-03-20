@@ -74,11 +74,27 @@ $(document).ready(function () {
             console.log(response);
             //------change data to say items-----
             var results = response.trails;
+            var myArray = [];
+
+            //for loop to push our trail names to an array
+            for (var i = 0; i < results.length; i++){
+                myArray.push(results[i].name)  
+            }
+            //chart.js
+            var trailchart = document.getElementById("trailChart").getContext("2d");
+
+            var chart1 = new Chart(trailchart, {
+                type: "line",
+                data: {
+                    labels: myArray
+                }
+            })
+            
             //for loop
             for (var i = 0; i < results.length; i++) {
                 //take the information from the aray (30)
                 //for each item make a div
-                var trailDiv = $("<div class='trailDiv>'");
+                var trailDiv = $("<div class='trailDiv'></div>");
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
