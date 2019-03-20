@@ -4,6 +4,8 @@
 //TC99-ZF99-RY89-DD72
 
 $(document).ready(function () {
+
+    $("#application-fill").hide();
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyBDtXNSFpOSO9f2MUuhNeoqLkgVXy4m8jQ",
@@ -24,6 +26,8 @@ $(document).ready(function () {
     var long;
 
     $("#submit-button").on("click", function () {
+        $("#application-fill").show();
+        $("#bg-fill").hide();
         //prevents page from refreshing
         // event.preventDefault();
 
@@ -47,8 +51,9 @@ $(document).ready(function () {
             console.log("lat is" + lat);
             console.log("long is" + long);
             renderTrails(lat, long);
-            renderWeather(lat, long);
             renderBikes(lat, long);
+            renderWeather(lat, long);
+            
         });
     });
 
@@ -78,7 +83,7 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++) {
                 //take the information from the aray (30)
                 //for each item make a div
-                var trailDiv = $("<div class='trailDiv>'");
+                var trailDiv = $("<div class='trailDiv></div>'");
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
@@ -121,9 +126,9 @@ $(document).ready(function () {
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
-                trailDiv.append(p1);
+                bikeDiv.append(p1);
 
-                $("#populate-bike").append(trailDiv);
+                $("#populate-bike").append(bikeDiv);
             }
         })
     }
@@ -393,5 +398,5 @@ function renderWeather () {
         })
 
     }
-// })
+
 
