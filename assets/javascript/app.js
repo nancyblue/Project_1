@@ -18,15 +18,15 @@ $(document).ready(function () {
             url: queryURL2,
             method: "GET"
         }).then(function (response1) {
-                console.log(response1);
+            console.log(response1);
 
-                lat = response1.Items[0].Latitude;
-                long = response1.Items[0].Longitude;
-                console.log("lat is" + lat);
-                console.log("long is" + long);
-                renderTrails(lat, long);
-                renderBikes(lat, long);
-            });
+            lat = response1.Items[0].Latitude;
+            long = response1.Items[0].Longitude;
+            console.log("lat is" + lat);
+            console.log("long is" + long);
+            renderTrails(lat, long);
+            renderBikes(lat, long);
+        });
     });
 
     function renderTrails(latitude, longitude) {
@@ -67,8 +67,7 @@ $(document).ready(function () {
 
         });
     }
-
-    function renderBikes(latitude, longitude){
+    function renderBikes(latitude, longitude) {
 
         // api key : 200433687-089c275b485af4ffdbd3dd1efd4536fc
         // https://www.mtbproject.com/data
@@ -78,10 +77,20 @@ $(document).ready(function () {
         $.ajax({
             url: queryURL3,
             method: "GET"
-        }).then(function (response2){
+        }).then(function (response2) {
             console.log(response2);
+            var results = response2.trails;
+            for (var i = 0; i < results.length; i++) {
+
+                var bikeDiv = $("<div class='bikeDiv>'");
+                //trail name
+                var p1 = $("<p>").text("Trail Name: " + results[i].name);
+                //location
+                trailDiv.append(p1);
+
+                $("#populate-bike").append(trailDiv);
+            }
         })
     }
-
-
 })
+
