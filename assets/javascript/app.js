@@ -8,14 +8,15 @@ $(document).ready(function () {
 
     var lat;
     var long;
-    console.log(lat + "empty")
+    // console.log(lat + "empty");
 
-    $("#submit-button").on("click", function () {
-        debugger;
+    // $("#submit-button").on("click", function () {
+        // debugger;
 
-        var city = $("#cityData").val();
-        console.log(city)
-        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + city
+        // var city = $("#cityData").val();
+        var city = "boston";
+        console.log(city);
+        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + city;
 
         $.ajax({
             url: queryURL2,
@@ -28,14 +29,14 @@ $(document).ready(function () {
             console.log("lat is" + lat);
             console.log("long is" + long);
             renderTrails(lat, long);
-            renderweather(lat, long);
+            renderWeather(lat, long);
         });
     });
 
 
     function renderTrails(latitude, longitude) {
         //change limit to 30 
-        var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=30&maxResults=30&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81"
+        var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=30&maxResults=30&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81";
 
         $.ajax({
             url: queryURL,
@@ -81,9 +82,9 @@ $(document).ready(function () {
 
 var skycons = new Skycons({"color": "gray"});
 
-function renderWeather () {
+function renderWeather (latitude, longitude) {
     
-    var forecastQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + lat + "," + long + "?exclude=minutely,hourly,alerts,flags";
+    var forecastQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "?exclude=minutely,hourly,alerts,flags";
     
     $.ajax({
         url: forecastQueryURL,
@@ -105,19 +106,18 @@ function renderWeather () {
         $("#populate-current-weather").append(temp);
         var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
         $("#populate-current-weather").append(currentSummary);
-        var dailySummary = $("<span>").append(response.daily.summary);
-        $("#populate-current-weather").append(dailySummary);
-
     })
 
-var someDate = "2019-04-23"; //date the user enters
-var someFormat = "YYYY-MM-DD";
-var pastDate = moment(someDate, someFormat).subtract(1, 'years').format('YYYY-MM-DDTHH:mm:ss');
-console.log(pastDate);
-var pastQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + lat + "," + long + "," + pastDate + "?exclude=currently,minutely,hourly,alerts,flags";
+// var someDate = "2019-04-23"; //date the user enters
+// var someFormat = "YYYY-MM-DD";
+// var pastDate = moment(someDate, someFormat).subtract(1, 'years').format('YYYY-MM-DDTHH:mm:ss');
+// console.log(pastDate);
+var futureDate = "2019-08-20T12:00:00"
+var futureQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "," + pastDate;
+// + "?exclude=currently,minutely,hourly,alerts,flags";
 
     $.ajax({
-        url: pastQueryURL,
+        url: futureQueryURL,
         method: "GET"
     }).then(function(response){
         console.log(response);
@@ -128,18 +128,17 @@ var pastQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.n
             height: "45px"
         }
         var icon = $("<canvas>").attr(canvasAttr);
-        $("#populate-past-weather").append(icon);
+        $("#populate-future-weather").append(icon);
         skycons.add("icon2", response.daily.data[0].icon);
         skycons.play();
 
         var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-        $("#populate-past-weather").append(maxTemp);
+        $("#populate-future-weather").append(maxTemp);
         var minTemp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-        $("#populate-past-weather").append(minTemp);
+        $("#populate-future-weather").append(minTemp);
         var dailySummary = $("<span>").append(response.daily.data[0].summary);
-        $("#populate-past-weather").append(dailySummary);
+        $("#populate-future-weather").append(dailySummary);
     })
 
 }
-
-})
+// })
