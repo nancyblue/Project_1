@@ -101,18 +101,18 @@ $(document).ready(function () {
             var chart1 = new Chart(trailchart, {
                 type: "line",
                 data: {
-                    labels: myArray,
+                    labels: trailArray,
                     datasets:[{
                         label: "Length",
-                        borderColor: window.chartColors.red,
-                        backgroundColor: window.chartColors.red,
+                        borderColor: "red",
+                        backgroundColor: "red",
                         data: trailLength,
 
                         }, 
                         {                        
                         label: "Ascent",
-                        borderColor: window.chartColors.red,
-                        backgroundColor: window.chartColors.red,
+                        borderColor: "orange",
+                        backgroundColor: "orange",
                         data: trailAscent,
                         }
                     ]
