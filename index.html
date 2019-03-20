@@ -1,137 +1,119 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <!-- Link to CSS reset -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <!-- Bootstrap Stylesheet -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Google Fonts:
-         font-family: 'Questrial', sans-serif;
-         font-family: 'Caveat', cursive; -->
-    <link href="https://fonts.googleapis.com/css?family=Caveat|Questrial" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <!-- Link to CSS reset -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <!-- Bootstrap Stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Google Fonts:
+       font-family: 'Questrial', sans-serif;
+       font-family: 'Caveat', cursive; -->
+  <link href="https://fonts.googleapis.com/css?family=Caveat|Questrial" rel="stylesheet">
 
-    <!-- JavaScript for Bootstrap -->
-     <!-- jQuery link -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- JavaScript for Bootstrap -->
+   <!-- jQuery link -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    <!-- Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+   <!-- Hello There! -->
+  <!-- Link to CSS style sheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/post-search.css">
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+  <title></title>
+</head>
 
-
-    <!-- Link to CSS style sheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/post-search.css">
-
-    <title></title>
-  </head>
-
-  <body>
-    <div class="container-fluid">
-      <nav class="navbar navbar-expand-lg">
-        <h1>TrailFolk</h1>
-      </nav>
+<body>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
+      <h1>TrailFolk</h1>
+    </nav>
+  </div>
+  <div class="jumbotron jumbotron-fluid" id="bg-fill">
+    <h1>Start Your Journey Today!</h1>
+    <div class="form">
+      <div class="form-section-small">
+        <label for="cityData">City</label>
+        <input type="text" class="hero-input-box" id="cityData">
+      </div>
+      <div class="form-section-small">
+        <label for="searchRadiusData">Search Radius</label>
+        <input type="number" class="hero-input-box" id="searchRadiusData">
+      </div>
+      <div class="form-section-large">
+        <label for="zipCodeData">Zip Code</label>
+        <input type="number" class="hero-input-box" id="zipCodeData">
+      </div>
+      <div class="form-section-small">
+        <label for="startDateData">Start Date</label>
+        <input type="date" class="hero-input-box" id="startDateData">
+      </div>
+      <div class="form-section-small">
+        <label for="endDateData">End Date</label>
+        <input type="date" class="hero-input-box" id="endDateData">
+      </div>
+      <input id="submit-button" type="submit" value="Submit">
     </div>
-    <div class="jumbotron jumbotron-fluid" id="bg-fill">
-      <h1>Start Your Journey Today!</h1>
-      <div class="form">
-        <div class="form-section-small">
-          <label for="cityData">City</label>
-          <input type="text" class="hero-input-box" id = "cityData">
-        </div>
-        <div class="form-section-small">
-          <label for="searchRadiusData">Search Radius</label>
-          <input type="number" class="hero-input-box" id = "searchRadiusData">
-        </div>
-        <div class="form-section-large">
-          <label for="zipCodeData">Zip Code</label>
-          <input type="number" class="hero-input-box" id = "zipCodeData">
-        </div>
-        <div class="form-section-small">
-          <label for="startDateData">Start Date</label>
-          <input type="date" class="hero-input-box" id = "startDateData">
-        </div>
-        <div class="form-section-small">
-          <label for="endDateData">End Date</label>
-          <input type="date" class="hero-input-box" id = "endDateData">
-        </div>
-        <input id="submit-button" type="submit" value="Submit">
+  </div>
+
+
+  <!-- Make this appear by using id bg-fill -->
+  <div class="main-content-background" id="application-fill">
+    <div class="primary-column">
+      <!-- Weather goes here -->
+      <div class="body-container" id="populateWeather">
+
       </div>
+      <!-- Hikes go here  -->
+      <div class="body-container" id="populateHikes">
+        <canvas id="trailChart" width="300" height="300"></canvas>
+      </div>
+      <!-- Biking goes here -->
+      <div class="body-container" id="populateBikes">
+        <h1>Hello Bike</h1>
+      </div>
+
     </div>
 
-
-    <!-- Make this appear by using id bg-fill -->
-    <div class="main-content-background" id="application-fill">
-      <div class="primary-column">
-        <!-- Weather goes here -->
-        <div class="body-container" id="populateWeather">
-          <div id="populate-current-weather">Current Conditions<br></div>
-          <div>Forecast for Your Trip</div>
-            <div id="populate-future-weather-1"></div>
-            <div id="populate-future-weather-2"></div>
-            <div id="populate-future-weather-3"></div>
-            <div id="populate-future-weather-4"></div>
-            <div id="populate-future-weather-5"></div>
-            <div id="populate-future-weather-6"></div>
-            <div id="populate-future-weather-7"></div>
+    <!-- THIS IS THE SIDEBAR -->
+    <div class="sidebar">
+      <!-- THIS HOLDS ALL SEARCH FORMS IN THE SIDEBAR -->
+      <div class="edit-parameters">
+        <div class="sidebar-form">
+          <div class="sidebar-form-text">
+            <label for="cityData">City</label>
+            <input type="text" class="sidebar-imput-box" id="cityData">
           </div>
         </div>
-      </div>
+        <div class="sidebar-form">
+          <div class="sidebar-form-text">
+            <label for="searchRadiusData">Search Radius</label>
+            <input type="number" class="sidebar-imput-box" id="searchRadiusData">
+          </div>
         </div>
-        <!-- Hikes go here  -->
-        <div class="body-container" id="populateHikes">
-          <canvas id="trailChart"></canvas>
-          <h1>Hello Hike</h1>
-          <h1>Hello Hike</h1>
+        <div class="sidebar-form">
+          <div class="sidebar-form-text">
+            <label for="searchRadiusData">Zip Code</label>
+            <input type="number" class="sidebar-imput-box" id="zipCodeData">
+          </div>
         </div>
-        <!-- Biking goes here -->
-        <div class="body-container" id="populateBikes">
-          <h1>Hello Bike</h1>
+        <div class="sidebar-form">
+          <div class="sidebar-form-text">
+            <label for="startDateData">Start Date</label>
+            <input type="date" class="sidebar-imput-box" id="startDateData">
+          </div>
         </div>
-
-      </div>
-
-      <!-- THIS IS THE SIDEBAR -->
-      <div class="sidebar">
-        <!-- THIS HOLDS ALL SEARCH FORMS IN THE SIDEBAR -->
-        <div class="edit-parameters">
-          <div class="sidebar-form">
-            <div class="sidebar-form-text">
-              <label for="cityData">City</label>
-              <input type="text" class="sidebar-imput-box" id = "cityData">
-            </div>
-          </div>
-          <div class="sidebar-form">
-            <div class="sidebar-form-text">
-              <label for="searchRadiusData">Search Radius</label>
-              <input type="number" class="sidebar-imput-box" id = "searchRadiusData">
-            </div>
-          </div>
-          <div class="sidebar-form">
-            <div class="sidebar-form-text">
-              <label for="searchRadiusData">Zip Code</label>
-              <input type="number" class="sidebar-imput-box" id = "zipCodeData">
-            </div>
-          </div>
-          <div class="sidebar-form">
-            <div class="sidebar-form-text">
-              <label for="startDateData">Start Date</label>
-              <input type="date" class="sidebar-imput-box" id = "startDateData">
-            </div>
-          </div>
-          <div class="sidebar-form">
-            <div class="sidebar-form-text">
-              <label for="endDateData">End Date</label>
-              <input type="date" class="sidebar-imput-box" id = "endDateData">
-            </div>
+        <div class="sidebar-form">
+          <div class="sidebar-form-text">
+            <label for="endDateData">End Date</label>
+            <input type="date" class="sidebar-imput-box" id="endDateData">
           </div>
         </div>
       </div>
     </div>
+  </div>
 
 
 
@@ -142,24 +124,28 @@
 
 
 
-    <!-- DO NOT TOUCH BELOW THIS LINE -->
-    <!-- <div class="body-content">
-      <h1>Your Trip Details</h1>
-      <div class="trailContainer">
-        <h2>Trail Recommendations</h2>
-        <div class="trailData">
-        </div>
+  <!-- DO NOT TOUCH BELOW THIS LINE -->
+  <!-- <div class="body-content">
+    <h1>Your Trip Details</h1>
+    <div class="trailContainer">
+      <h2>Trail Recommendations</h2>
+      <div class="trailData">
       </div>
-      <div class="weatherContainer">
-        <h2>Weather</h2>
-        <div class="weatherData">
-        Populate weather data here! -->
+    </div>
+    <div class="weatherContainer">
+      <h2>Weather</h2>
+      <div class="weatherData">
+      </div>
+    </div>
+  </div> -->
 
-    <!-- JS app link -->
-    <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <!-- JS app link -->
+  <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
 
-    <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
-  </body>
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+
+
+</body>
 </html>

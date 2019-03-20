@@ -102,24 +102,56 @@ $(document).ready(function () {
                 type: "line",
                 data: {
                     labels: myArray,
-                    datasets:[
-                        {
+                    datasets:[{
                         label: "Length",
+                        borderColor: window.chartColors.red,
+                        backgroundColor: window.chartColors.red,
                         data: trailLength,
+
                         }, 
                         {                        
                         label: "Ascent",
-                        cdata: trailAscent
+                        borderColor: window.chartColors.red,
+                        backgroundColor: window.chartColors.red,
+                        data: trailAscent,
                         }
                     ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: "Trail Length and Ascension"
+                    },
+                    tooltips: {
+                        mode: 'index',
+                    },
+                    hover: {
+                        mode: 'index'
+                    },
+                    scales: {
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "Trail Name"
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: "Value"
+                            }
+                        }]
+                    }
                 }
-            })
+            });
             
             //for loop
             for (var i = 0; i < results.length; i++) {
                 //take the information from the aray (30)
                 //for each item make a div
-                var trailDiv = $("<div class='trailDiv></div>'");
+                var trailDiv = $("<div class='trailDiv'></div>");
                 //trail name
                 var p1 = $("<p>").text("Trail Name: " + results[i].name);
                 //location
