@@ -1,0 +1,98 @@
+/* Overall HTML Styling */
+body {
+  font-family: 'Questrial', sans-serif;
+  color: #191919;
+}
+
+/* Navbar Styling */
+.navbar-expand-lg {
+  justify-content: center;
+  background-color: #368B36;
+  font-family: 'Caveat', cursive;
+  color: white;
+}
+
+.navbar-expand-lg h1 {
+  font-size: 3rem;
+}
+
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* Background Styling */
+.main-content-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/Mountain-Banner.png");
+  /* height: 50%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  /* height: 650px; */
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  /* flex-direction: column; */
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 32px;
+}
+
+/* .jumbotron-fluid {
+  padding-left: 32px;
+  padding-right: 32px;
+} */
+
+#application-fill {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Content Styling */
+/* Primary-Column Styling */
+.primary-column {
+  width: 75%;
+  background-color: white;
+  height: 200px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: white;
+  /* height: 200px; */
+  width: 20%;
+  height: 100%;
+}
+
+/* Sidebar Search Styling */
+.edit-parameters {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.sidebar-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.sidebar-form-text {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 5px;
+  width: 90%
+}
+
+.sidebar-imput-box {
+  height: 30px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+}
