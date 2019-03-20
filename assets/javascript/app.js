@@ -87,7 +87,7 @@ $(document).ready(function () {
                 //img small
                 var image = $("<img>").attr("src", results[i].imgSmall);
                 trailDiv.append(image, p1, p2, p6, p3, p4, p5);
-                $(".trail-flexbox").append(trailDiv);
+                $("#hikingTarget").append(trailDiv);
             }
         });
     }
@@ -119,7 +119,7 @@ $(document).ready(function () {
                 var image = $("<img>").attr("src", results[i].imgSmall);
                 bikeDiv.append(image, p1, p2, p6, p3, p4, p5);
 
-                $("#populateBikes").append(bikeDiv);
+                $("#bikingTarget").append(bikeDiv);
             }
         })
     }

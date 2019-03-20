@@ -4,7 +4,7 @@
   color: #191919;
 } */
 
-.trailDiv img {
+.trailDiv img, .bikeDiv img {
   width: 300px;
   height: 200px;
 }
@@ -112,7 +112,7 @@
   /* overflow: auto; */
 }
 
-#populateWeather, #populateBikes {
+#populateWeather {
   margin-top: 0px;
   height: 200px;
 }
@@ -127,7 +127,7 @@
   overflow: auto;
 }
 
-.trailDiv {
+.trailDiv, .bikeDiv {
   /* height: 100%; */
   display: flex;
   flex-wrap: wrap;
@@ -141,6 +141,6 @@
   transition: transform .5s
 }
 
-.trailDiv:hover {
+.trailDiv:hover, .bikeDiv:hover {
   transform: scale(1.1);
 }
