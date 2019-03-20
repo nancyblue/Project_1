@@ -16,11 +16,16 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
     <!-- Chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+
+
     <!-- Link to CSS style sheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/post-search.css">
 
     <title></title>
   </head>
@@ -31,17 +36,9 @@
         <h1>TrailFolk</h1>
       </nav>
     </div>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid" id="bg-fill">
       <h1>Start Your Journey Today!</h1>
       <div class="form">
-        <!-- <div class="form-section-small">
-          <label for="firstNameData">First Name</label>
-          <input type="text" class="hero-input-box" id = "firstNameData">
-        </div> -->
-        <!-- <div class="form-section-small">
-          <label for="lastNameData">Last Name</label>
-          <input type="text" class="hero-input-box" id = "lastNameData">
-        </div> -->
         <div class="form-section-small">
           <label for="cityData">City</label>
           <input type="text" class="hero-input-box" id = "cityData">
@@ -65,21 +62,92 @@
         <input id="submit-button" type="submit" value="Submit">
       </div>
     </div>
-    <div class="body-content">
+
+
+    <!-- Make this appear by using id bg-fill -->
+    <div class="main-content-background" id="application-fill">
+      <div class="primary-column">
+        <!-- Weather goes here -->
+        <div class="body-container" id="populateWeather">
+        </div>
+        <!-- Hikes go here  -->
+        <div class="body-container" id="populateHikes">
+          <h1>Hello 1</h1>
+        </div>
+        <!-- Biking goes here -->
+        <div class="body-container" id="populateBikes">
+        </div>
+
+      </div>
+      <div class="sidebar">
+        <div class="edit-parameters">
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="cityData">City</label>
+              <input type="text" class="sidebar-imput-box" id = "cityData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="searchRadiusData">Search Radius</label>
+              <input type="number" class="sidebar-imput-box" id = "searchRadiusData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="searchRadiusData">Zip Code</label>
+              <input type="number" class="sidebar-imput-box" id = "zipCodeData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="startDateData">Start Date</label>
+              <input type="date" class="sidebar-imput-box" id = "startDateData">
+            </div>
+          </div>
+          <div class="sidebar-form">
+            <div class="sidebar-form-text">
+              <label for="endDateData">End Date</label>
+              <input type="date" class="sidebar-imput-box" id = "endDateData">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- DO NOT TOUCH BELOW THIS LINE -->
+    <!-- <div class="body-content">
       <h1>Your Trip Details</h1>
       <div class="trailContainer">
         <h2>Trail Recommendations</h2>
         <div class="trailData">
-          <!-- Populate trail information here, it could be a table or anything really we can discuss -->
         </div>
       </div>
       <div class="weatherContainer">
         <h2>Weather</h2>
         <div class="weatherData">
           <!-- Populate weather data here! -->
+          <div id="populate-current-weather">Current Conditions<br></div>
+          <div>Forecast for Your Trip</div>
+            <div id="populate-future-weather-1"></div>
+            <div id="populate-future-weather-2"></div>
+            <div id="populate-future-weather-3"></div>
+            <div id="populate-future-weather-4"></div>
+            <div id="populate-future-weather-5"></div>
+            <div id="populate-future-weather-6"></div>
+            <div id="populate-future-weather-7"></div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- JS app link -->
     <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
