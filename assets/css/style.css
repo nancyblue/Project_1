@@ -31,11 +31,11 @@ body {
   flex-direction: column;
 }
 
-#bg-fill {
+/* #bg-fill {
   position: fixed;
   min-width: 100%;
   min-height: 100%;
-}
+} */
 
 .jumbotron h1 {
   margin-bottom: 60px;
@@ -62,7 +62,6 @@ body {
   border-radius: 5px;
   font-family: 'Questrial', sans-serif;
   letter-spacing: .5px;
-  margin-bottom: 130px;
 }
 input {
   margin-bottom: 5px;
