@@ -79,7 +79,7 @@ input {
 #cityData {
   margin-bottom: 5px;
 }
-#submit-button {
+#submit-button, #submit-button-two {
   width: 100%;
   margin-top: 10px;
   border: 0;
