@@ -1,7 +1,12 @@
 /* Overall HTML Styling */
-body {
+/* body {
   font-family: 'Questrial', sans-serif;
   color: #191919;
+} */
+
+.trailDiv img {
+  width: 300px;
+  height: 200px;
 }
 
 /* Navbar Styling */
@@ -28,7 +33,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  /* position: fixed; */
   /* height: 650px; */
   background-size: cover;
   display: flex;
@@ -45,11 +50,7 @@ body {
   padding-right: 32px;
 } */
 
-#application-fill {
-  position: fixed;
-  min-width: 100%;
-  min-height: 100%;
-}
+
 
 /* Content Styling */
 
@@ -87,7 +88,7 @@ body {
 
 .sidebar-imput-box {
   height: 30px;
-  border: 1px solid;
+  border: 1px solid transparent;
   border-radius: 5px;
   padding: 5px;
   width: 100%;
@@ -97,6 +98,7 @@ body {
 .primary-column {
   width: 75%;
   height: 100%;
+  overflow: auto;
 }
 
 /* Body Container Styling */
@@ -105,11 +107,40 @@ body {
   flex-wrap: wrap;
   width: 100%;
   background-color: white;
-  height: 200px;
+  height: 100%;
   margin: 20px 0;
+  /* overflow: auto; */
+}
+
+#populateWeather, #populateBikes {
+  margin-top: 0px;
+  height: 200px;
+}
+
+/* Trail Container Styling */
+.trail-flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  justify-content: space-around;
+  height: 400px;
   overflow: auto;
 }
 
-#populateWeather {
-  margin-top: 0px;
+.trailDiv {
+  /* height: 100%; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 20px;
+  margin-bottom: 40px;
+  flex-direction: column;
+  width: 360px;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0px 0px 30px #888888;
+  transition: transform .5s
+}
+
+.trailDiv:hover {
+  transform: scale(1.1);
 }
