@@ -17,21 +17,22 @@ $(document).ready(function () {
 
     //create a variable to reference the database 
     var database = firebase.database();
+    var inputs = 0;
 
-    
+
     var lat;
     var long;
-    console.log(lat + "empty")
 
     $("#submit-button").on("click", function () {;
+        //prevents page from refreshing
+        // event.preventDefault();
 
         var city = $("#cityData").val();
         console.log(city)
 
         //---Firebase---
         database.ref("/citySearch").push(city)
-
-
+        inputs++;
 
         //---Loqate---
         var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + city
@@ -50,6 +51,17 @@ $(document).ready(function () {
         });
     });
 
+    //This will add the city to our webpage
+    database.ref("/citySearch").on("child_added", function(childSnapshot){
+        console.log(childSnapshot.val());
+        var cityName = childSnapshot.val().city;
+        console.log(cityName);
+        var cityDiv = $("<div class='recentCities'>");
+        var cityText = $("<p>").text(cityName);
+        cityDiv.append(cityText);
+        //this is where we will append it to the specified div in the html 
+    });
+
 
     function renderTrails(latitude, longitude) {
         //change limit to 30 
@@ -61,7 +73,7 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log(response);
             //------change data to say items-----
-            var results = response.data;
+            var results = response.trails;
             //for loop
             for (var i = 0; i < results.length; i++) {
                 //take the information from the aray (30)
@@ -84,8 +96,7 @@ $(document).ready(function () {
 
                 trailDiv.append(p1, p2, p3, p4, p5, p6, image);
 
-                $("#populate-hike").append(trailDiv);
-
+                $(".trailData").append(trailDiv);
             }
 
 
