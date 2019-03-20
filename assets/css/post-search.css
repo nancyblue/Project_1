@@ -107,7 +107,7 @@
   /* overflow: auto; */
 }
 
-#populateWeather {
+#populateWeather, #populateBikes {
   margin-top: 0px;
   height: 200px;
 }
@@ -118,11 +118,14 @@
   flex-wrap: wrap;
   padding: 30px;
   justify-content: space-around;
+  height: 400px;
+  overflow: auto;
 }
 
 .trailDiv {
   /* height: 100%; */
   display: flex;
+  margin: 0 20px;
   margin-bottom: 40px;
   flex-direction: column;
   padding: 30px;
