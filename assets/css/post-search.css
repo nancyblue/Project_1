@@ -170,12 +170,12 @@
 .app-container {
   display: flex;
   flex-wrap: wrap;
-  width: 65%;
+  width: 90%;
 }
 
-.favoriteContainer {
+/* .favoriteContainer {
   width: 25%;
-}
+} */
 
 .jumpButtons {
   display: flex;
@@ -212,4 +212,20 @@
 
 #weatherButton {
   border-radius: 0 0 0 10px;
+}
+
+/* Weather Data */
+#populate-current-weather, #populate-future-weather-1, #populate-future-weather-2, #populate-future-weather-3,#populate-future-weather-4,#populate-future-weather-5,#populate-future-weather-6,#populate-future-weather-7 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+#populate-future-weather-1 canvas, #populate-future-weather-2 canvas, #populate-future-weather-3 canvas, #populate-future-weather-4 canvas, #populate-future-weather-5 canvas, #populate-future-weather-6 canvas, #populate-future-weather-7 canvas {
+  max-width: 52px;
+  margin: 0 auto;
+}
+
+#weatherTarget {
+  flex-wrap: nowrap;
 }

@@ -197,9 +197,9 @@ $(document).ready(function () {
     var skycons = new Skycons({"color": "green"});
 
     function renderWeather (latitude, longitude) {
-        
+
         var currentQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "?exclude=minutely,hourly,alerts,flags";
-        
+
         $.ajax({
             url: currentQueryURL,
             method: "GET"
@@ -215,20 +215,19 @@ $(document).ready(function () {
                 height: "45px"
             }
             var icon = $("<canvas>").attr(canvasAttr);
-
-            var temp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.currently.temperature) + "°F");
-            var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
-            
-            $("#populate-current-weather").prepend(icon).append(temp).append(currentSummary);
             skycons.add("icon0", response.currently.icon);
             skycons.play();
 
+            var temp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.currently.temperature) + "°F");
+            var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
+
+            $("#populate-current-weather").append(icon).append(temp).append(currentSummary);
         })
 
         //DAY 1
         // var startDate = "2019-12-23";
         var startDate = $("#startDateData").val(); //date the user enters
-        console.log(startDate); 
+        console.log(startDate);
         var dateFormat = "YYYY-MM-DD";
         var day1 = moment(startDate, dateFormat).subtract(2, 'years').format('YYYY-MM-DDTHH:mm:ss');
         console.log(day1);
@@ -252,14 +251,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
-                
+                skycons.add("icon1", response.daily.data[0].icon);
+                skycons.play();
+
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-1").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon1", response.daily.data[0].icon);
-                skycons.play();
             })
 
         //DAY 2
@@ -286,14 +285,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
+                skycons.add("icon2", response.daily.data[0].icon);
+                skycons.play();
 
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-2").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon2", response.daily.data[0].icon);
-                skycons.play();
             })
 
         //DAY 3
@@ -320,14 +319,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
+                skycons.add("icon3", response.daily.data[0].icon);
+                skycons.play();
 
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-3").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon3", response.daily.data[0].icon);
-                skycons.play();
             })
 
         //DAY 4
@@ -354,14 +353,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
+                skycons.add("icon4", response.daily.data[0].icon);
+                skycons.play();
 
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-4").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon4", response.daily.data[0].icon);
-                skycons.play();
             })
 
         //DAY 5
@@ -388,14 +387,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
+                skycons.add("icon5", response.daily.data[0].icon);
+                skycons.play();
 
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-5").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon5", response.daily.data[0].icon);
-                skycons.play();
             })
 
         //DAY 6
@@ -422,14 +421,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
+                skycons.add("icon6", response.daily.data[0].icon);
+                skycons.play();
 
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-6").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon6", response.daily.data[0].icon);
-                skycons.play();
             })
 
         //DAY 7
@@ -456,14 +455,14 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
+                skycons.add("icon7", response.daily.data[0].icon);
+                skycons.play();
 
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
 
                 $("#populate-future-weather-7").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
-                skycons.add("icon7", response.daily.data[0].icon);
-                skycons.play();
             })
 
         }
