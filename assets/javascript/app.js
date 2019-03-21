@@ -20,15 +20,25 @@ $(document).ready(function () {
     var lat;
     var long;
     $("#submit-button").on("click", function () {
-        // $("#application-fill").show();
-        // $("#bg-fill").hide();
-        //prevents page from refreshing
-        // event.preventDefault();
-        var city = $("#cityData").val();
-        console.log(city);
+        $("#weatherTarget").empty();
+        $("#hikingTarget").empty();
+        $("#hikingCanvas").empty();
+        $("#bikingTarget").empty();
+       
+        var city = $("#cityData").val().trim();
+        const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
+        console.log(cityCapitalized);
 
         //---Firebase---
-        database.ref("/citySearch").push(city)
+        firebase.database().ref(`/citySearch/${cityCapitalized}`).once("value",function(snapshot){
+            if(snapshot.exists()){
+                var newCount = snapshot.val().count + 1
+                database.ref("/citySearch/"+cityCapitalized).set({count:newCount})
+            }else{
+                database.ref("/citySearch/"+cityCapitalized).set({count:1})
+            }
+        })
+
         inputs++;
         //---Loqate---
         var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=EZ39-WY68-HG79-NB67&Country=US&Location=" + city;
@@ -49,14 +59,16 @@ $(document).ready(function () {
     });
     //This will add the city to our webpage
     database.ref("/citySearch").on("child_added", function(childSnapshot){
-        console.log(childSnapshot.val());
-        var cityName = childSnapshot.val().city;
+        console.log(childSnapshot.ref_.path.pieces_[1]);
+        var cityName = childSnapshot.ref_.path.pieces_[1];
+        console.log(childSnapshot.val().count);
+        var searches = childSnapshot.val().count;
         console.log(cityName);
-        var cityDiv = $("<div class='recentCities'>");
-        var cityText = $("<p>").text(cityName);
+        var cityDiv = $("<div class='recentCities'></div>");
+        var cityText = $("<p>").text(cityName + ": " + searches + " search(es)");
         cityDiv.append(cityText);
         //this is where we will append it to the specified div in the html
-        $(".trail-flexbox").append(cityDiv);
+        $("#recentSearch").prepend(cityDiv);
     });
     function renderTrails(latitude, longitude) {
         //change limit to 30
@@ -196,43 +208,43 @@ $(document).ready(function () {
         })
     }
 // *************************************************** Polar Chart *************************************************************************************
-        var difficultyArray = [];
+//         var difficultyArray = [];
 
-           //for loop to push our trail difficulty to an array
-           for (var i = 0; i < results.length; i++){
-               myArray.push(results[i].difficulty)
-           }
-           var difficultyData = [];
+//            //for loop to push our trail difficulty to an array
+//            for (var i = 0; i < results.length; i++){
+//                myArray.push(results[i].difficulty)
+//            }
+//            var difficultyData = [];
 
-           //for loop to push our difficulty data to an array
-           for (var i = 0; i < results.length; i++){
-               difficultyData.push(results[i].difficulty)
-           } 
-               <canvas id="myChart2"></canvas>
-                var ctx = document.getElementById('myChart2').getContext('2d');
-                var Chart = new Chart(ctx, {
-                    // The type of chart we want to create
-                    type: 'polarArea',
+//            //for loop to push our difficulty data to an array
+//            for (var i = 0; i < results.length; i++){
+//                difficultyData.push(results[i].difficulty)
+//            } 
+//                <canvas id="myChart2"></canvas>
+//                 var ctx = document.getElementById('myChart2').getContext('2d');
+//                 var Chart = new Chart(ctx, {
+//                     // The type of chart we want to create
+//                     type: 'polarArea',
 
-                    // The data for our dataset
-                    data: {
-                        // trailArray is an empty array being populated by our Trail API, so it stores the trail names
-                        labels: [trailArray],
-                        datasets: [{
-                            label: 'My First dataset',
-                            backgroundColor: 'rgb(255, 99, 132)',
-                            borderColor: 'rgb(255, 99, 132)',
-                            data: difficultyData
-                        }]
-                    },
+//                     // The data for our dataset
+//                     data: {
+//                         // trailArray is an empty array being populated by our Trail API, so it stores the trail names
+//                         labels: [trailArray],
+//                         datasets: [{
+//                             label: 'My First dataset',
+//                             backgroundColor: 'rgb(255, 99, 132)',
+//                             borderColor: 'rgb(255, 99, 132)',
+//                             data: difficultyData
+//                         }]
+//                     },
 
-                    // Configuration options go here
-                    options: {
+//                     // Configuration options go here
+//                     options: {
                         
-                    }
-                });
+//                     }
+//                 });
 
-// *************************************************** Polar Chart *************************************************************************************
+// // *************************************************** Polar Chart *************************************************************************************
 
 
     var skycons = new Skycons({"color": "lightblue"});
