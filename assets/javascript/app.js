@@ -56,6 +56,7 @@ $(document).ready(function () {
         var cityText = $("<p>").text(cityName);
         cityDiv.append(cityText);
         //this is where we will append it to the specified div in the html
+        $(".trail-flexbox").append(cityDiv);
     });
     function renderTrails(latitude, longitude) {
         //change limit to 30
