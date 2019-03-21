@@ -123,7 +123,7 @@
   flex-wrap: wrap;
   padding: 30px;
   justify-content: space-around;
-  height: 400px;
+  /* height: 400px; */
   overflow: auto;
 }
 
