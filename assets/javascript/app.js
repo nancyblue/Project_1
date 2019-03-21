@@ -121,7 +121,7 @@ $(document).ready(function () {
 
                 $("#bikingTarget").append(bikeDiv);
             }
-        })
+        }) 
     }
 
 
