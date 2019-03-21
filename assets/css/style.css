@@ -1,4 +1,46 @@
+#logo{
+  font-size: 74px;
+  margin-right: 745px;
+  margin-bottom: -12px;
+  margin-top: -14px;
+  text-shadow:
+		-3px -2px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+a{
+  width: 100%;
+}
+
+#main-message{
+font-family: 'Shrikhand', cursive;
+/* font-family: 'Fugaz One', cursive; */
+
+}
+#details-header{
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-size: 55px;
+  padding-bottom: 22px;
+  
+
+}
+.results-header{
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+
+}
+
 body {
+  background-image: url(../images/background.png);
   font-family: 'Questrial', sans-serif;
   color: #191919;
 }
@@ -15,6 +57,7 @@ body {
 .container-fluid {
   padding-right: 0;
   padding-left: 0;
+  border-bottom: 0.3px solid #0C5018;
 }
 .jumbotron {
   background-image: url("../images/Mountain-Banner.png");
@@ -23,7 +66,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 650px;
+  height: 700px;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -38,10 +81,9 @@ body {
 } */
 
 .jumbotron h1 {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   font-size: 4rem;
   font-family: 'Questrial', sans-serif;
-  font-weight: bold;
   letter-spacing: 1px;
 }
 .form-inline .form-control {
@@ -51,16 +93,18 @@ body {
   margin: 0 auto;
 }
 .form {
+  border: 0.4px solid darkblue;
+  font-size: 19px;
   display: flex;
   /* justify-content: center; */
   flex-direction: row;
-  width: 30%;
+  width: 40%;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 5px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Lato', sans-serif;
   letter-spacing: .5px;
 }
 input {
