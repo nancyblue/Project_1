@@ -1,45 +1,43 @@
-#logo{
+#logo {
   font-size: 74px;
   margin-bottom: -12px;
   margin-top: -14px;
   text-shadow:
-		-3px -2px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
+    -3px -2px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
-a{
+
+a {
   width: 100%;
 }
 
-#main-message{
-font-family: 'Shrikhand', cursive;
-/* font-family: 'Fugaz One', cursive; */
-
+#main-message {
+  font-family: 'Shrikhand', cursive;
+  /* font-family: 'Fugaz One', cursive; */
 }
-#details-header{
+
+#details-header {
   text-align: center;
   font-family: 'Pacifico', cursive;
   font-size: 55px;
   padding-bottom: 22px;
-  
-
 }
-.results-header{
+
+.results-header {
   font-size: 40px;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
   text-shadow:
-		-1px -1px 0 #000,
-		1px -1px 0 #000,
-		-1px 1px 0 #000,
-		1px 1px 0 #000;
-
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 body {
-
   font-family: 'Questrial', sans-serif;
   color: #191919;
 }
@@ -50,14 +48,17 @@ body {
   font-family: 'Caveat', cursive;
   color: white;
 }
+
 .navbar-expand-lg h1 {
   font-size: 3rem;
 }
+
 .container-fluid {
   padding-right: 0;
   padding-left: 0;
   border-bottom: 0.3px solid #0C5018;
 }
+
 .jumbotron {
   background-image: url("../images/Mountain-Banner.png");
   height: 50%;
@@ -78,19 +79,23 @@ body {
   min-width: 100%;
   min-height: 100%;
 } */
-
 .jumbotron h1 {
-  margin-bottom: 40px;
   font-size: 4rem;
-  font-family: 'Questrial', sans-serif;
+  font-family: tenso, sans-serif;
   letter-spacing: 1px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
+
 .form-inline .form-control {
   margin-bottom: 5%;
 }
+
 #center-this {
   margin: 0 auto;
 }
+
 .form {
   border: 0.4px solid darkblue;
   font-size: 19px;
@@ -106,12 +111,15 @@ body {
   font-family: 'Lato', sans-serif;
   letter-spacing: .5px;
 }
+
 input {
   margin-bottom: 5px;
 }
+
 .form label {
   color: white;
 }
+
 .hero-input-box {
   height: 30px;
   border: 0px;
@@ -119,9 +127,11 @@ input {
   padding: 5px;
   width: 100%;
 }
+
 #cityData {
   margin-bottom: 5px;
 }
+
 #submit-button, #submit-button-two {
   width: 100%;
   margin-top: 10px;
@@ -135,15 +145,18 @@ input {
   color: white;
   cursor: pointer;
 }
+
 #submit-button:hover {
   background-color: #40A340;
 }
+
 .form-section-small {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 48%;
 }
+
 .form-section-large {
   width: 100%;
   display: flex;
@@ -154,7 +167,8 @@ input {
 .body-content {
   padding: 50px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
