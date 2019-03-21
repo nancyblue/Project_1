@@ -67,6 +67,29 @@ $(document).ready(function () {
             console.log(response);
 
             var results = response.trails;
+              //for loop
+              for (var i = 0; i < results.length; i++) {
+                //take the information from the aray (30)
+                //for each item make a div
+                var trailDiv = $("<div class='trailDiv'></div>");
+                //trail name
+                var p1 = $("<p>").html("<span id='descriptionHeader'>Trail Name: </span>" + results[i].name);
+                //location
+                var p2 = $("<p>").html("<span id='descriptionHeader'>Location: </span>" + results[i].location);
+                //difficulty
+                var p3 = $("<p>").html("<span id='descriptionHeader'>Difficulty: </span>" + results[i].difficulty);
+                //condition details
+                var p4 = $("<p>").html("<span id='descriptionHeader'>Trail Condition: </span>" + results[i].conditionDetails);
+                //ascent
+                var p5 = $("<p>").html("<span id='descriptionHeader'>Ascent(feet): </span>" + results[i].ascent);
+                //length
+                var p6 = $("<p>").html("<span id='descriptionHeader'>Length(miles): </span>" + results[i].length);
+                //img small
+                var image = $("<img>").attr("src", results[i].imgSmall);
+                trailDiv.append(image, p1, p2, p6, p3, p4, p5);
+                $("#hikingTarget").append(trailDiv);
+            }
+
             var trailArray = [];
             var trailDescent = [];
             var trailAscent = [];
@@ -135,28 +158,6 @@ $(document).ready(function () {
                 }
             });
             
-            //for loop
-            for (var i = 0; i < results.length; i++) {
-                //take the information from the aray (30)
-                //for each item make a div
-                var trailDiv = $("<div class='trailDiv'></div>");
-                //trail name
-                var p1 = $("<p>").html("<span id='descriptionHeader'>Trail Name: </span>" + results[i].name);
-                //location
-                var p2 = $("<p>").html("<span id='descriptionHeader'>Location: </span>" + results[i].location);
-                //difficulty
-                var p3 = $("<p>").html("<span id='descriptionHeader'>Difficulty: </span>" + results[i].difficulty);
-                //condition details
-                var p4 = $("<p>").html("<span id='descriptionHeader'>Trail Condition: </span>" + results[i].conditionDetails);
-                //ascent
-                var p5 = $("<p>").html("<span id='descriptionHeader'>Ascent(feet): </span>" + results[i].ascent);
-                //length
-                var p6 = $("<p>").html("<span id='descriptionHeader'>Length(miles): </span>" + results[i].length);
-                //img small
-                var image = $("<img>").attr("src", results[i].imgSmall);
-                trailDiv.append(image, p1, p2, p6, p3, p4, p5);
-                $("#hikingTarget").append(trailDiv);
-            }
         });
     }
     function renderBikes(latitude, longitude) {
