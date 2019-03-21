@@ -73,17 +73,17 @@ $(document).ready(function () {
                 //for each item make a div
                 var trailDiv = $("<div class='trailDiv'></div>");
                 //trail name
-                var p1 = $("<p>").text("Trail Name: " + results[i].name);
+                var p1 = $("<p>").html("<span id='descriptionHeader'>Trail Name: </span>" + results[i].name);
                 //location
-                var p2 = $("<p>").text("Location: " + results[i].location);
+                var p2 = $("<p>").html("<span id='descriptionHeader'>Location: </span>" + results[i].location);
                 //difficulty
-                var p3 = $("<p>").text("Difficulty: " + results[i].difficulty);
+                var p3 = $("<p>").html("<span id='descriptionHeader'>Difficulty: </span>" + results[i].difficulty);
                 //condition details
-                var p4 = $("<p>").text("Trail Condition: " + results[i].conditionDetails);
+                var p4 = $("<p>").html("<span id='descriptionHeader'>Trail Condition: </span>" + results[i].conditionDetails);
                 //ascent
-                var p5 = $("<p>").text("Ascent (Feet): " + results[i].ascent);
+                var p5 = $("<p>").html("<span id='descriptionHeader'>Ascent(feet): </span>" + results[i].ascent);
                 //length
-                var p6 = $("<p>").text("Length (Miles): " + results[i].length);
+                var p6 = $("<p>").html("<span id='descriptionHeader'>Length(miles): </span>" + results[i].length);
                 //img small
                 var image = $("<img>").attr("src", results[i].imgSmall);
                 trailDiv.append(image, p1, p2, p6, p3, p4, p5);
@@ -104,17 +104,17 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++) {
                 var bikeDiv = $("<div class='bikeDiv'></div>");
                 //trail name
-                var p1 = $("<p>").text("Trail Name: " + results[i].name);
+                var p1 = $("<p>").html("<span id='descriptionHeader'>Trail Name: </span>" + results[i].name);
                 //location
-                var p2 = $("<p>").text("Location: " + results[i].location);
+                var p2 = $("<p>").html("<span id='descriptionHeader'>Location: </span>" + results[i].location);
                 //difficulty
-                var p3 = $("<p>").text("Difficulty: " + results[i].difficulty);
+                var p3 = $("<p>").html("<span id='descriptionHeader'>Difficulty: </span>" + results[i].difficulty);
                 //condition details
-                var p4 = $("<p>").text("Trail Condition: " + results[i].conditionDetails);
+                var p4 = $("<p>").html("<span id='descriptionHeader'>Trail Condition: </span>" + results[i].conditionDetails);
                 //ascent
-                var p5 = $("<p>").text("Ascent (Feet): " + results[i].ascent);
+                var p5 = $("<p>").html("<span id='descriptionHeader'>Ascent(Feet): </span>" + results[i].ascent);
                 //length
-                var p6 = $("<p>").text("Length (Miles): " + results[i].length);
+                var p6 = $("<p>").html("<span id='descriptionHeader'>Length(Miles): </span>" + results[i].length);
                 //img small
                 var image = $("<img>").attr("src", results[i].imgSmall);
                 bikeDiv.append(image, p1, p2, p6, p3, p4, p5);
