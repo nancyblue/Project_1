@@ -215,13 +215,13 @@ $(document).ready(function () {
                 height: "45px"
             }
             var icon = $("<canvas>").attr(canvasAttr);
-            skycons.add("icon0", response.currently.icon);
-            skycons.play();
 
             var temp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.currently.temperature) + "°F");
             var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
             
             $("#populate-current-weather").prepend(icon).append(temp).append(currentSummary);
+            skycons.add("icon0", response.currently.icon);
+            skycons.play();
         })
 
         //DAY 1
@@ -251,9 +251,7 @@ $(document).ready(function () {
                     height: "45px"
                 }
                 var icon = $("<canvas>").attr(canvasAttr);
-                debugger;
                 
-
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
