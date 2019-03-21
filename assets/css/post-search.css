@@ -176,3 +176,40 @@
 .favoriteContainer {
   width: 25%;
 }
+
+.jumpButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.jumpButtons button {
+  width: 25%;
+  border: 0px;
+  color: white;
+  background-color: #124B12;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 5px 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.jumpButtons button:hover {
+  background-color: #259825;
+}
+
+#hikingButton {
+  border-left: 2px solid #1C711C;
+  border-right: 2px solid #1C711C;
+}
+
+#bikingButton {
+  border-right: 2px solid #1C711C;
+}
+
+#chartButton {
+  border-radius: 0 0 10px 0;
+}
+
+#weatherButton {
+  border-radius: 0 0 0 10px;
+}
