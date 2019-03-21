@@ -197,9 +197,9 @@ $(document).ready(function () {
     var skycons = new Skycons({"color": "green"});
 
     function renderWeather (latitude, longitude) {
-
+        
         var currentQueryURL = "https://cors-ut-bootcamp.herokuapp.com/https://api.darksky.net/forecast/5a94f8eda59fbebfdab5d23ef8035ce8/" + latitude + "," + longitude + "?exclude=minutely,hourly,alerts,flags";
-
+        
         $.ajax({
             url: currentQueryURL,
             method: "GET"
@@ -227,7 +227,7 @@ $(document).ready(function () {
         //DAY 1
         // var startDate = "2019-12-23";
         var startDate = $("#startDateData").val(); //date the user enters
-        console.log(startDate);
+        console.log(startDate); 
         var dateFormat = "YYYY-MM-DD";
         var day1 = moment(startDate, dateFormat).subtract(2, 'years').format('YYYY-MM-DDTHH:mm:ss');
         console.log(day1);
