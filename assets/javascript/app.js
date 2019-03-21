@@ -100,7 +100,7 @@ $(document).ready(function () {
             }
             //for loop to push our trail length to an array
             for (var i = 0; i < results.length; i++){
-                trailDescent.push(results[i].descent);
+                trailDescent.push(Math.abs(results[i].descent));
             }
             //for loop to push our trail ascent to an array
             for (var i = 0; i < results.length; i++){
@@ -130,9 +130,10 @@ $(document).ready(function () {
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio: false,
                     title: {
                         display: true,
-                        text: "Trail Length and Ascension"
+                        text: "Ascent and Descent"
                     },
                     tooltips: {
                         mode: 'index',
@@ -151,7 +152,7 @@ $(document).ready(function () {
                             stacked: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: "Value"
+                                labelString: "Feet"
                             }
                         }]
                     }
@@ -194,7 +195,7 @@ $(document).ready(function () {
     }
 
 
-    var skycons = new Skycons({"color": "green"});
+    var skycons = new Skycons({"color": "lightblue"});
 
     function renderWeather (latitude, longitude) {
 
