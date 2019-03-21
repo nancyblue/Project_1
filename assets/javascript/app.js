@@ -96,18 +96,18 @@ $(document).ready(function () {
 
             //for loop to push our trail names to an array
             for (var i = 0; i < results.length; i++){
-                trailArray.push(results[i].name); 
+                trailArray.push(results[i].name);
             }
             //for loop to push our trail length to an array
             for (var i = 0; i < results.length; i++){
-                trailDescent.push(results[i].descent);  
+                trailDescent.push(results[i].descent);
             }
             //for loop to push our trail ascent to an array
             for (var i = 0; i < results.length; i++){
-                trailAscent.push(results[i].ascent);  
+                trailAscent.push(results[i].ascent);
             }
             //chart.js
-            var trailchart = document.getElementById("trailChart").getContext("2d");
+            var trailchart = document.getElementById("hikingCanvas").getContext("2d");
 
             var chart1 = new Chart(trailchart, {
                 type: "line",
@@ -119,8 +119,8 @@ $(document).ready(function () {
                         backgroundColor: "red",
                         data: trailDescent,
 
-                        }, 
-                        {                        
+                        },
+                        {
                         label: "Ascent",
                         borderColor: "orange",
                         backgroundColor: "orange",
@@ -157,7 +157,7 @@ $(document).ready(function () {
                     }
                 }
             });
-            
+
         });
     }
     function renderBikes(latitude, longitude) {
@@ -190,7 +190,7 @@ $(document).ready(function () {
 
                 $("#bikingTarget").append(bikeDiv);
             }
-        }) 
+        })
     }
 
 
@@ -220,7 +220,7 @@ $(document).ready(function () {
 
             var temp = $("<span>").append("  &nbsp;  &nbsp;  " + Math.round(response.currently.temperature) + "°F");
             var currentSummary = $("<span>").append("  &nbsp;  &nbsp;  " + response.currently.summary + "<br>");
-            
+
             $("#populate-current-weather").append(icon).append(temp).append(currentSummary);
         })
 
@@ -257,7 +257,7 @@ $(document).ready(function () {
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                
+
                 $("#populate-future-weather-1").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             })
 
@@ -291,7 +291,7 @@ $(document).ready(function () {
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                
+
                 $("#populate-future-weather-2").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             })
 
@@ -325,7 +325,7 @@ $(document).ready(function () {
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                
+
                 $("#populate-future-weather-3").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             })
 
@@ -461,7 +461,7 @@ $(document).ready(function () {
                 var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
                 var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
                 var dailySummary = $("<span>").append(response.daily.data[0].summary);
-                
+
                 $("#populate-future-weather-7").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             })
 
