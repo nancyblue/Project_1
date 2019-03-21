@@ -1,6 +1,5 @@
 #logo{
   font-size: 74px;
-  margin-right: 745px;
   margin-bottom: -12px;
   margin-top: -14px;
   text-shadow:
@@ -40,7 +39,7 @@ font-family: 'Shrikhand', cursive;
 }
 
 body {
-  background-image: url(../images/background.png);
+
   font-family: 'Questrial', sans-serif;
   color: #191919;
 }
