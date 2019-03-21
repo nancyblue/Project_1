@@ -3,7 +3,7 @@
 //loqate
 //TC99-ZF99-RY89-DD72
 $(document).ready(function () {
-    $("#application-fill").hide();
+    // $("#application-fill").hide();
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyBDtXNSFpOSO9f2MUuhNeoqLkgVXy4m8jQ",
@@ -20,8 +20,8 @@ $(document).ready(function () {
     var lat;
     var long;
     $("#submit-button").on("click", function () {
-        $("#application-fill").show();
-        $("#bg-fill").hide();
+        // $("#application-fill").show();
+        // $("#bg-fill").hide();
         //prevents page from refreshing
         // event.preventDefault();
         var city = $("#cityData").val();
@@ -31,7 +31,7 @@ $(document).ready(function () {
         database.ref("/citySearch").push(city)
         inputs++;
         //---Loqate---
-        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=TC99-ZF99-RY89-DD72&Country=US&Location=" + city;
+        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=EZ39-WY68-HG79-NB67&Country=US&Location=" + city;
         $.ajax({
             url: queryURL2,
             method: "GET"
@@ -87,7 +87,7 @@ $(document).ready(function () {
                 //img small
                 var image = $("<img>").attr("src", results[i].imgSmall);
                 trailDiv.append(image, p1, p2, p6, p3, p4, p5);
-                $(".trail-flexbox").append(trailDiv);
+                $("#hikingTarget").append(trailDiv);
             }
         });
     }
@@ -119,7 +119,7 @@ $(document).ready(function () {
                 var image = $("<img>").attr("src", results[i].imgSmall);
                 bikeDiv.append(image, p1, p2, p6, p3, p4, p5);
 
-                $("#populateBikes").append(bikeDiv);
+                $("#bikingTarget").append(bikeDiv);
             }
         })
     }
