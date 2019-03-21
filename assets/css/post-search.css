@@ -5,8 +5,10 @@
 } */
 
 .trailDiv img, .bikeDiv img {
-  width: 300px;
+  width: 100%;
   height: 200px;
+  border-radius: 15px 15px 0 0;
+  margin-bottom: 5px;
 }
 
 /* Navbar Styling */
@@ -102,6 +104,15 @@
 }
 
 /* Body Container Styling */
+.trailContainer h2{
+  background-color: forestgreen;
+  color: white;
+  border-radius: 15px 15px 0 0;
+  padding: 10px 0;
+  padding-left: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 .body-container {
   display: flex;
   flex-wrap: wrap;
@@ -134,13 +145,24 @@
   margin: 0 20px;
   margin-bottom: 40px;
   flex-direction: column;
-  width: 360px;
-  padding: 30px;
+  width: 280px;
+  /* padding: 30px; */
   background-color: white;
   box-shadow: 0px 0px 30px #888888;
-  transition: transform .5s
+  transition: transform .5s;
+  border-radius: 15px;
 }
 
 .trailDiv:hover, .bikeDiv:hover {
   transform: scale(1.1);
+}
+
+.trailDiv p, .bikeDiv p {
+  padding: 0 10px;
+  margin-bottom: .5rem;
+}
+
+#descriptionHeader {
+  font-weight: bold;
+  letter-spacing: 1px;
 }
