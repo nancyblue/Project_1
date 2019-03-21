@@ -195,7 +195,7 @@ $(document).ready(function () {
     }
 
 
-    var skycons = new Skycons({"color": "green"});
+    var skycons = new Skycons({"color": "lightblue"});
 
     function renderWeather (latitude, longitude) {
         
