@@ -106,6 +106,7 @@ $(document).ready(function () {
             for (var i = 0; i < results.length; i++){
                 trailAscent.push(results[i].ascent);
             }
+
             //chart.js
             var trailchart = document.getElementById("hikingCanvas").getContext("2d");
 
@@ -193,6 +194,44 @@ $(document).ready(function () {
             }
         })
     }
+// *************************************************** Polar Chart *************************************************************************************
+        var difficultyArray = [];
+
+           //for loop to push our trail difficulty to an array
+           for (var i = 0; i < results.length; i++){
+               myArray.push(results[i].difficulty)
+           }
+           var difficultyData = [];
+
+           //for loop to push our difficulty data to an array
+           for (var i = 0; i < results.length; i++){
+               difficultyData.push(results[i].difficulty)
+           } 
+               <canvas id="myChart2"></canvas>
+                var ctx = document.getElementById('myChart2').getContext('2d');
+                var Chart = new Chart(ctx, {
+                    // The type of chart we want to create
+                    type: 'polarArea',
+
+                    // The data for our dataset
+                    data: {
+                        // trailArray is an empty array being populated by our Trail API, so it stores the trail names
+                        labels: [trailArray],
+                        datasets: [{
+                            label: 'My First dataset',
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            data: difficultyData
+                        }]
+                    },
+
+                    // Configuration options go here
+                    options: {
+                        
+                    }
+                });
+
+// *************************************************** Polar Chart *************************************************************************************
 
 
     var skycons = new Skycons({"color": "lightblue"});
