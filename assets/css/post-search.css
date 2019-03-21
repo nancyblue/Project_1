@@ -221,6 +221,10 @@
   text-align: center;
 }
 
+#populate-current-weather {
+  display: none;
+}
+
 #populate-future-weather-1 canvas, #populate-future-weather-2 canvas, #populate-future-weather-3 canvas, #populate-future-weather-4 canvas, #populate-future-weather-5 canvas, #populate-future-weather-6 canvas, #populate-future-weather-7 canvas {
   max-width: 52px;
   margin: 0 auto;
