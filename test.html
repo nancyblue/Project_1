@@ -10,13 +10,6 @@
        font-family: 'Questrial', sans-serif;
        font-family: 'Caveat', cursive; -->
   <link href="https://fonts.googleapis.com/css?family=Caveat|Questrial" rel="stylesheet">
-  <!-- font-family: 'ABeeZee', sans-serif;
-font-family: 'Fugaz One', cursive;
-font-family: 'Shrikhand', cursive;
-font-family: 'Pacifico', cursive;
-font-family: 'Lato', sans-serif;
-font-family: 'Roboto', sans-serif; -->
-  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Fugaz+One|Lato|Pacifico|Roboto|Shrikhand" rel="stylesheet">
 
   <!-- JavaScript for Bootstrap -->
    <!-- jQuery link -->
@@ -35,13 +28,13 @@ font-family: 'Roboto', sans-serif; -->
 <body>
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg">
-      <h1 id="logo">TrailFolk</h1>
+      <h1>TrailFolk</h1>
     </nav>
   </div>
   <div class="jumbotron jumbotron-fluid" id="bg-fill">
-    <h1 id="main-message">Start Your Journey Today..</h1>
+    <h1>Start Your Journey Today!</h1>
     <div class="form">
-      <div class="form-section-large">
+      <div class="form-section-small">
         <label for="cityData">City</label>
         <input type="text" class="hero-input-box" id="cityData">
       </div>
@@ -49,7 +42,7 @@ font-family: 'Roboto', sans-serif; -->
         <label for="searchRadiusData">Search Radius</label>
         <input type="number" class="hero-input-box" id="searchRadiusData">
       </div>
-      <div class="form-section-small">
+      <div class="form-section-large">
         <label for="zipCodeData">Zip Code</label>
         <input type="number" class="hero-input-box" id="zipCodeData">
       </div>
@@ -61,60 +54,32 @@ font-family: 'Roboto', sans-serif; -->
         <label for="endDateData">End Date</label>
         <input type="date" class="hero-input-box" id="endDateData">
       </div>
-      <a href="#unique-identifier">
       <input id="submit-button" type="submit" value="Submit">
-      </a>
     </div>
   </div>
 
 
   <!-- Make this appear by using id bg-fill -->
-  <div class="body-content">
-    <a name="unique-identifier">
-    <h1 id="details-header">Your Trip Details</h1>
-    </a>
-    <div class="trailContainer">
-      <h2 class="results-header">Hiking Trail Recommendations</h2>
-      <div class="trailData">
-        <div class="body-container" id="populateHikes">
-          <div class="trail-flexbox" id="hikingTarget">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="trailContainer">
-      <h2 class="results-header">Biking Trail Recommendations</h2>
-      <div class="trailData">
-        <div class="body-container" id="populateBikes">
-          <div class="trail-flexbox" id="bikingTarget">
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="weatherContainer">
-      <h2 class="results-header">Weather</h2>
-      <div class="weatherData">
-      </div>
-    </div> -->
-  </div>
-  <div class="primary-column">
-    <!-- Weather goes here -->
-    <div class="body-container" id="populateWeather">
-    </div>
-    <!-- Hikes go here  -->
-    <div class="body-container" id="populateHikes"></div>
-      <div class="trail-flexbox" id="hikingTarget">
-      </div>
-    </div>
-    <!-- Biking goes here -->
-    <!-- <div class="body-container" id="populateBikes">
-      <div class="trail-flexbox" id="bikingTarget">
-      </div>
-    </div> -->
+  <div class="main-content-background" id="application-fill">
+    <div class="primary-column">
+      <!-- Weather goes here -->
+      <div class="body-container" id="populateWeather">
 
-  </div>
+      </div>
+      <!-- Hikes go here  -->
+      <div class="body-container" id="populateHikes">
+        <canvas id="trailChart" width="300" height="300"></canvas>
+      </div>
+      <!-- Biking goes here -->
+      <div class="body-container" id="populateBikes">
+  
+      </div>
 
-    <!-- <div class="sidebar">
+    </div>
+
+    <!-- THIS IS THE SIDEBAR -->
+    <div class="sidebar">
+      <!-- THIS HOLDS ALL SEARCH FORMS IN THE SIDEBAR -->
       <div class="edit-parameters">
         <div class="sidebar-form">
           <div class="sidebar-form-text">
@@ -146,12 +111,25 @@ font-family: 'Roboto', sans-serif; -->
             <input type="date" class="sidebar-imput-box" id="endDateData">
           </div>
         </div>
-        <input id="submit-button-two" type="submit" value="Submit">
       </div>
-      <div class="searchHistory">
+    </div>
+  </div>
 
+
+  <!-- DO NOT TOUCH BELOW THIS LINE -->
+  <!-- <div class="body-content">
+    <h1>Your Trip Details</h1>
+    <div class="trailContainer">
+      <h2>Trail Recommendations</h2>
+      <div class="trailData">
       </div>
-    </div> -->
+    </div>
+    <div class="weatherContainer">
+      <h2>Weather</h2>
+      <div class="weatherData">
+      </div>
+    </div>
+  </div> -->
 
   <!-- JS app link -->
   <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>

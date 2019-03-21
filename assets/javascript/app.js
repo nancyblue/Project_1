@@ -65,8 +65,76 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            //------change data to say items-----
+
             var results = response.trails;
+            var trailArray = [];
+            var trailDescent = [];
+            var trailAscent = [];
+
+            //for loop to push our trail names to an array
+            for (var i = 0; i < results.length; i++){
+                trailArray.push(results[i].name); 
+            }
+            //for loop to push our trail length to an array
+            for (var i = 0; i < results.length; i++){
+                trailDescent.push(results[i].descent);  
+            }
+            //for loop to push our trail ascent to an array
+            for (var i = 0; i < results.length; i++){
+                trailAscent.push(results[i].ascent);  
+            }
+            //chart.js
+            var trailchart = document.getElementById("trailChart").getContext("2d");
+
+            var chart1 = new Chart(trailchart, {
+                type: "line",
+                data: {
+                    labels: trailArray,
+                    datasets:[{
+                        label: "Descent",
+                        borderColor: "red",
+                        backgroundColor: "red",
+                        data: trailDescent,
+
+                        }, 
+                        {                        
+                        label: "Ascent",
+                        borderColor: "orange",
+                        backgroundColor: "orange",
+                        data: trailAscent,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: "Trail Length and Ascension"
+                    },
+                    tooltips: {
+                        mode: 'index',
+                    },
+                    hover: {
+                        mode: 'index'
+                    },
+                    scales: {
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: "Trail Name"
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: "Value"
+                            }
+                        }]
+                    }
+                }
+            });
+            
             //for loop
             for (var i = 0; i < results.length; i++) {
                 //take the information from the aray (30)
