@@ -71,7 +71,8 @@ $(document).ready(function () {
         var searches = childSnapshot.val().count;
         console.log(cityName);
         var cityDiv = $("<div class='recentCities'></div>");
-        var cityText = $("<p>").text(cityName + ": " + searches + " search(es)");
+        var cityText = $("<button>").text(cityName + ": " + searches + " search(es)");
+        cityText.attr("class", "citySearched");
         cityDiv.append(cityText);
         //this is where we will append it to the specified div in the html
         $("#recentSearch").prepend(cityDiv);
