@@ -3,6 +3,7 @@
 //loqate
 //TC99-ZF99-RY89-DD72
 $(document).ready(function () {
+    $("#sideNav").hide();
     // $("#application-fill").hide();
     // Initialize Firebase
     var config = {
@@ -20,6 +21,7 @@ $(document).ready(function () {
     var lat;
     var long;
     $("#submit-button").on("click", function () {
+        $("#sideNav").show();
         // $("#application-fill").show();
         // $("#bg-fill").hide();
         //prevents page from refreshing
@@ -41,6 +43,7 @@ $(document).ready(function () {
             long = response1.Items[0].Longitude;
             console.log("lat is" + lat);
             console.log("long is" + long);
+            $("#sideNav-city").html("<p>" + city + "<p>");
             renderTrails(lat, long);
             renderBikes(lat, long);
             renderWeather(lat, long);
