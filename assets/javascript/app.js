@@ -3,6 +3,7 @@
 //loqate
 //TC99-ZF99-RY89-DD72
 $(document).ready(function () {
+    $("#sideNav").hide();
     // $("#application-fill").hide();
     // Initialize Firebase
     var config = {
@@ -20,6 +21,7 @@ $(document).ready(function () {
     var lat;
     var long;
     $("#submit-button").on("click", function () {
+
         $("#weatherTarget").empty();
         $("#hikingTarget").empty();
         $("#hikingCanvas").empty();
@@ -28,6 +30,9 @@ $(document).ready(function () {
         var city = $("#cityData").val().trim();
         const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
         console.log(cityCapitalized);
+
+        $("#sideNav").show();
+
 
         //---Firebase---
         firebase.database().ref(`/citySearch/${cityCapitalized}`).once("value",function(snapshot){
@@ -51,6 +56,7 @@ $(document).ready(function () {
             long = response1.Items[0].Longitude;
             console.log("lat is" + lat);
             console.log("long is" + long);
+            $("#sideNav-city").html("<p>" + city + "<p>");
             renderTrails(lat, long);
             renderBikes(lat, long);
             renderWeather(lat, long);
@@ -207,7 +213,9 @@ $(document).ready(function () {
             }
         })
     }
+
 // *************************************************** Polar Chart *************************************************************************************
+
 //         var difficultyArray = [];
 
 //            //for loop to push our trail difficulty to an array
