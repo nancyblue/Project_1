@@ -56,7 +56,7 @@ $(document).ready(function () {
             long = response1.Items[0].Longitude;
             console.log("lat is" + lat);
             console.log("long is" + long);
-            $("#sideNav-city").html("<p>" + city + "<p>");
+            $("#cityName").text("- " + city);
             renderTrails(lat, long);
             renderBikes(lat, long);
             renderWeather(lat, long);
