@@ -75,7 +75,7 @@ $(document).ready(function () {
         cityText.attr("class", "citySearched");
         cityDiv.append(cityText);
         //this is where we will append it to the specified div in the html
-        $("#recentSearch").prepend(cityDiv);
+        $("#favoriteSearches").prepend(cityDiv);
     });
     function renderTrails(latitude, longitude) {
         //change limit to 30
