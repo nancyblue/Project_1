@@ -20,6 +20,12 @@ $(document).ready(function () {
     var inputs = 0;
     var lat;
     var long;
+    if ($("#cityData").val() && $("#searchRadiusData").val()) {
+        $("#submit-button").disabled = false;
+    }
+    else {
+        $("#submit-button").disabled = true;
+    }
     $("#submit-button").on("click", function () {
 
         $("#weatherTarget").empty();
