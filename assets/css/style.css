@@ -11,7 +11,9 @@ body{
     -1px 1px 0 #000,
     1px 1px 0 #000;
 } */
-#sideNav{
+
+/* BARBARAS STYLING DONT TOUCH */
+/* #sideNav{
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -33,8 +35,9 @@ body{
 #sideNav a:hover {
   background: #ddd;
   color: black;
-}
+} */
 
+/* ================================================ */
 
 a {
   width: 100%;
@@ -57,12 +60,12 @@ a {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: bolder;
-  text-shadow:
+  /* text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
-    margin:0px !important;
+    margin:0px !important; */
 }
 
 body {
@@ -81,6 +84,7 @@ body {
   font-size: 3rem;
 } */
 
+/* Nav Styling */
 nav {
   background-color: forestgreen;
   /* height: 75px; */
@@ -102,6 +106,22 @@ nav h1 {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+#cityName {
+  text-transform: capitalize;
+}
+
+.navSearchItems a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  margin: 0 20px;
+  font-family: 'Questrial', sans-serif;
+}
+
+.navSearchItems a:hover {
+  color: #BFBFBF;
 }
 
 .container-fluid {
