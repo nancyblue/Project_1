@@ -28,6 +28,7 @@ $(document).ready(function () {
         $("#bikingTarget").empty();
        
         var city = $("#cityData").val().trim();
+        var radius = $("#searchRadiusData").val().trim();
         const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
         console.log(cityCapitalized);
 
