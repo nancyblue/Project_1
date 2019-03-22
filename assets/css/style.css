@@ -240,13 +240,22 @@ input {
 /* Search Favorites */
 #favoriteSearches {
   margin: 20px;
-  padding: 40px 0;
+  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   color: white;
+}
+
+#favoriteSearches h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#favoriteSearchesButtons {
+
 }
 
 /* Body Content */
