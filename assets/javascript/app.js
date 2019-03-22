@@ -21,16 +21,29 @@ $(document).ready(function () {
     var lat;
     var long;
     $("#submit-button").on("click", function () {
+
+        $("#weatherTarget").empty();
+        $("#hikingTarget").empty();
+        $("#hikingCanvas").empty();
+        $("#bikingTarget").empty();
+       
+        var city = $("#cityData").val().trim();
+        const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
+        console.log(cityCapitalized);
+
         $("#sideNav").show();
-        // $("#application-fill").show();
-        // $("#bg-fill").hide();
-        //prevents page from refreshing
-        // event.preventDefault();
-        var city = $("#cityData").val();
-        console.log(city);
+
 
         //---Firebase---
-        database.ref("/citySearch").push(city)
+        firebase.database().ref(`/citySearch/${cityCapitalized}`).once("value",function(snapshot){
+            if(snapshot.exists()){
+                var newCount = snapshot.val().count + 1
+                database.ref("/citySearch/"+cityCapitalized).set({count:newCount})
+            }else{
+                database.ref("/citySearch/"+cityCapitalized).set({count:1})
+            }
+        })
+
         inputs++;
         //---Loqate---
         var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=EZ39-WY68-HG79-NB67&Country=US&Location=" + city;
@@ -52,13 +65,16 @@ $(document).ready(function () {
     });
     //This will add the city to our webpage
     database.ref("/citySearch").on("child_added", function(childSnapshot){
-        console.log(childSnapshot.val());
-        var cityName = childSnapshot.val().city;
+        console.log(childSnapshot.ref_.path.pieces_[1]);
+        var cityName = childSnapshot.ref_.path.pieces_[1];
+        console.log(childSnapshot.val().count);
+        var searches = childSnapshot.val().count;
         console.log(cityName);
-        var cityDiv = $("<div class='recentCities'>");
-        var cityText = $("<p>").text(cityName);
+        var cityDiv = $("<div class='recentCities'></div>");
+        var cityText = $("<p>").text(cityName + ": " + searches + " search(es)");
         cityDiv.append(cityText);
         //this is where we will append it to the specified div in the html
+        $("#recentSearch").prepend(cityDiv);
     });
     function renderTrails(latitude, longitude) {
         //change limit to 30
@@ -197,7 +213,9 @@ $(document).ready(function () {
             }
         })
     }
-// // *************************************************** Polar Chart *************************************************************************************
+
+// *************************************************** Polar Chart *************************************************************************************
+
 //         var difficultyArray = [];
 
 //            //for loop to push our trail difficulty to an array
