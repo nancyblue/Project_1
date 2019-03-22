@@ -3,7 +3,7 @@
 //loqate
 //TC99-ZF99-RY89-DD72
 $(document).ready(function () {
-    $("#navSearchItems").hide();
+    $(".navSearchItems").hide();
     // $("#application-fill").hide();
     // Initialize Firebase
     var config = {
@@ -31,7 +31,7 @@ $(document).ready(function () {
         const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
         console.log(cityCapitalized);
 
-        $("#navSearchItems").show();
+        $(".navSearchItems").show();
 
 
         //---Firebase---
