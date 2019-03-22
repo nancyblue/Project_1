@@ -77,6 +77,17 @@ font-family: 'Roboto', sans-serif; -->
     <a name="unique-identifier">
     <h1 id="details-header">Your Trip Details</h1>
     </a>
+
+    <!-- side navigation -->
+    <nav class="nav flex-column" id="sideNav">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" id="sideNav-city"></a>
+        <a class="nav-link active" href="#">Search</a>
+        <a class="nav-link" href="#weatherJump">Weather</a>
+        <a class="nav-link" href="#hikingJump">Hiking Trails</a>
+        <a class="nav-link" href="#bikingJump">Biking Trails</a>
+        <a class="nav-link" href="#chartsJump">Charts</a>
+      </nav>
+
     <!-- <div class="favoriteContainer">
       <div class="trailContainer">
         <h2 class="results-header">Favorites</h2>
@@ -84,9 +95,11 @@ font-family: 'Roboto', sans-serif; -->
     </div> -->
     <div class="app-container">
       <div class="trailContainer">
+        <a name="weatherJump">
         <h2 class="results-header">Weather Forecast</h2>
+      </a>
           <div class="trailData">
-            <div class="body-container">
+            <div class="body-container box">
               <div class="trail-flexbox" id="weatherTarget">
                 <div id="populate-future-weather-1"></div>
                 <div id="populate-future-weather-2"></div>
@@ -98,86 +111,54 @@ font-family: 'Roboto', sans-serif; -->
               </div>
             </div>
           </div>
-        <div class="jumpButtons">
-          <button type="button" name="button" id="weatherButton">Weather</button>
-          <button type="button" name="button" id="hikingButton">Hiking</button>
-          <button type="button" name="button" id="bikingButton">Biking</button>
-          <button type="button" name="button" id="chartButton">Chart</button>
-        </div>
       </div>
 
       <div class="trailContainer">
         <h2 class="results-header">Israel's Playground</h2>
           <div class="trailData">
-            <div class="body-container">
+            <div class="body-container box">
               <div class="trail-flexbox">
 
               </div>
             </div>
           </div>
-        <div class="jumpButtons">
-          <button type="button" name="button" id="weatherButton">Weather</button>
-          <button type="button" name="button" id="hikingButton">Hiking</button>
-          <button type="button" name="button" id="bikingButton">Biking</button>
-          <button type="button" name="button" id="chartButton">Chart</button>
-        </div>
       </div>
 
       <div class="trailContainer">
-        <h2 class="results-header">Nancy's Playground</h2>
-        <div class="chartContainer">
-          <canvas id="polarChart" width="100%" height="300px"></canvas>
-        </div>
-        <div class="jumpButtons">
-          <button type="button" name="button" id="weatherButton">Weather</button>
-          <button type="button" name="button" id="hikingButton">Hiking</button>
-          <button type="button" name="button" id="bikingButton">Biking</button>
-          <button type="button" name="button" id="chartButton">Chart</button>
-        </div>
-      </div>
-
-      <div class="trailContainer">
+          <a name="hikingJump">
         <h2 class="results-header">Hiking Trail Recommendations</h2>
+        </a>
         <div class="trailData">
-          <div class="body-container" id="populateHikes">
+          <div class="body-container box" id="populateHikes">
             <div class="trail-flexbox" id="hikingTarget">
             </div>
           </div>
         </div>
-        <div class="jumpButtons">
-          <button type="button" name="button" id="weatherButton">Weather</button>
-          <button type="button" name="button" id="hikingButton">Hiking</button>
-          <button type="button" name="button" id="bikingButton">Biking</button>
-          <button type="button" name="button" id="chartButton">Chart</button>
-        </div>
       </div>
 
       <div class="trailContainer">
+          <a name="chartsJump">
         <h2 class="results-header">Hiking Charts</h2>
         <div class="chartContainer">
           <canvas id="hikingCanvas" width="100%" height="300px"></canvas>
         </div>
-        <div class="jumpButtons">
-          <button type="button" name="button" id="weatherButton">Weather</button>
-          <button type="button" name="button" id="hikingButton">Hiking</button>
-          <button type="button" name="button" id="bikingButton">Biking</button>
-          <button type="button" name="button" id="chartButton">Chart</button>
-        </div>
       </div>
+      <div class="trailContainer">
+          <h2 class="results-header">Nancy's Playground</h2>
+          <div class="chartContainer">
+            <canvas id="polarChart" width="100%" height="300px"></canvas>
+          </div>
+        </div>
 
       <div class="trailContainer">
+        <a name="bikingJump">
         <h2 class="results-header">Biking Trail Recommendations</h2>
+        </a>
         <div class="trailData">
-          <div class="body-container" id="populateBikes">
+          <div class="body-container box" id="populateBikes">
             <div class="trail-flexbox" id="bikingTarget">
             </div>
           </div>
-        </div>
-        <div class="jumpButtons">
-          <button type="button" name="button" id="weatherButton">Weather</button>
-          <button type="button" name="button" id="hikingButton">Hiking</button>
-          <button type="button" name="button" id="bikingButton">Biking</button>
-          <button type="button" name="button" id="chartButton">Chart</button>
         </div>
       </div>
     </div>
