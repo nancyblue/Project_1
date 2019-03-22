@@ -20,6 +20,7 @@ $(document).ready(function () {
     var inputs = 0;
     var lat;
     var long;
+    
     $("#submit-button").on("click", function () {
 
         $("#weatherTarget").empty();
@@ -28,7 +29,7 @@ $(document).ready(function () {
         $("#bikingTarget").empty();
 
         var city = $("#cityData").val().trim();
-        var radius = $("#searchRadiusData").val().trim();
+        var radius = $("#searchRadiusData").val();
         const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
         console.log(cityCapitalized);
 
@@ -59,8 +60,8 @@ $(document).ready(function () {
             console.log("long is" + long);
             $("#cityName").text("- " + city);
             renderTrails(lat, long);
-            renderBikes(lat, long);
-            renderWeather(lat, long);
+            renderBikes(lat, long, radius);
+            renderWeather(lat, long, radius);
 
         });
     });
@@ -78,7 +79,7 @@ $(document).ready(function () {
         //this is where we will append it to the specified div in the html
         $("#favoriteSearchesButtons").prepend(cityDiv);
     });
-    function renderTrails(latitude, longitude) {
+    function renderTrails(latitude, longitude, radius) {
         //change limit to 30
         var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude
             + "&lon=" + longitude +
@@ -185,10 +186,11 @@ $(document).ready(function () {
 
         });
     }
-    function renderBikes(latitude, longitude) {
+    function renderBikes(latitude, longitude, radius) {
         // api key : 200433687-089c275b485af4ffdbd3dd1efd4536fc
         // https://www.mtbproject.com/data
-        var queryURL3 = "https://www.mtbproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=10&key=200433687-089c275b485af4ffdbd3dd1efd4536fc";
+        var queryURL3 = "https://www.mtbproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + 
+        "&maxDistance=" + radius + "&key=200433687-089c275b485af4ffdbd3dd1efd4536fc";
         $.ajax({
             url: queryURL3,
             method: "GET"
