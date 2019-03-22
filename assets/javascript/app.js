@@ -2,6 +2,8 @@
 //200432797-9adce9a5420c2e2c01a8fe63186f4f81
 //loqate
 //TC99-ZF99-RY89-DD72
+//Google api key
+//AIzaSyDH33IKEsj0inOHwPBtIVky9WKuwxZw-AQ
 $(document).ready(function () {
     $("#sideNav").hide();
     // $("#application-fill").hide();
@@ -28,6 +30,7 @@ $(document).ready(function () {
         $("#bikingTarget").empty();
        
         var city = $("#cityData").val().trim();
+        var radius = $("#searchRadiusData").val().trim();
         const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
         console.log(cityCapitalized);
 
@@ -79,7 +82,9 @@ $(document).ready(function () {
     });
     function renderTrails(latitude, longitude) {
         //change limit to 30
-        var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + "&maxDistance=30&maxResults=10&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81";
+        var queryURL = "https://www.hikingproject.com/data/get-trails?lat=" + latitude 
+        + "&lon=" + longitude + 
+        "&maxDistance=" + radius + "&maxResults=10&key=200432797-9adce9a5420c2e2c01a8fe63186f4f81";
         $.ajax({
             url: queryURL,
             method: "GET"
