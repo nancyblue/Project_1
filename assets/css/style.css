@@ -88,10 +88,13 @@ body {
 /* Nav Styling */
 nav {
   background-color: forestgreen;
-  /* height: 75px; */
+  /* height: 75px; */ 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
 }
 
 nav h1 {
@@ -138,7 +141,7 @@ nav h1 {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 100vh;
+  height: 130vh;
   background-size: cover;
   display: flex;
   justify-content: center;
