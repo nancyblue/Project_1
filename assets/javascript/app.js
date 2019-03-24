@@ -1,7 +1,7 @@
 //hike api key
 //200432797-9adce9a5420c2e2c01a8fe63186f4f81
 //loqate
-//TC99-ZF99-RY89-DD72
+//CC48-AN73-NU45-AW38
 $(document).ready(function () {
     // $(".navSearchItems").hide();
     // $("#application-fill").hide();
@@ -48,7 +48,7 @@ $(document).ready(function () {
 
         inputs++;
         //---Loqate---
-        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=EZ39-WY68-HG79-NB67&Country=US&Location=" + city;
+        var queryURL2 = "https://api.addressy.com/Geocoding/International/Geocode/v1.10/json3.ws?Key=CC48-AN73-NU45-AW38&Country=US&Location=" + city;
         $.ajax({
             url: queryURL2,
             method: "GET"
