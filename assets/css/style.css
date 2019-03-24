@@ -1,18 +1,7 @@
 body{
   background-image: url(../images/background.png)
 }
-.maxTemp{
-  color: red;
-}
-.minTemp{
-  color: blue;
-}
-.summary{
-  color: green;
-}
-.date{
-  color:purple;
-}
+
 /* #logo {
   font-size: 74px;
   margin-bottom: -12px;
