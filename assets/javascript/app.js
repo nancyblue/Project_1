@@ -3,7 +3,7 @@
 //loqate
 //TC99-ZF99-RY89-DD72
 $(document).ready(function () {
-    $(".navSearchItems").hide();
+    // $(".navSearchItems").hide();
     // $("#application-fill").hide();
     // Initialize Firebase
     var config = {
@@ -20,7 +20,7 @@ $(document).ready(function () {
     var inputs = 0;
     var lat;
     var long;
-    
+
     $("#submit-button").on("click", function () {
 
         $("#weatherTarget").empty();
@@ -33,7 +33,7 @@ $(document).ready(function () {
         const cityCapitalized = city.charAt(0).toUpperCase() + city.slice(1)
         console.log(cityCapitalized);
 
-        $(".navSearchItems").show();
+        // $(".navSearchItems").show();
 
 
         //---Firebase---
@@ -189,7 +189,7 @@ $(document).ready(function () {
     function renderBikes(latitude, longitude, radius) {
         // api key : 200433687-089c275b485af4ffdbd3dd1efd4536fc
         // https://www.mtbproject.com/data
-        var queryURL3 = "https://www.mtbproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude + 
+        var queryURL3 = "https://www.mtbproject.com/data/get-trails?lat=" + latitude + "&lon=" + longitude +
         "&maxDistance=" + radius + "&key=200433687-089c275b485af4ffdbd3dd1efd4536fc";
         $.ajax({
             url: queryURL3,
@@ -233,7 +233,7 @@ $(document).ready(function () {
     //            //for loop to push our difficulty data to an array
     //            for (var i = 0; i < results.length; i++){
     //                difficultyData.push(results[i].difficulty)
-    //            } 
+    //            }
     //                <canvas id="myChart2"></canvas>
     //                 var ctx = document.getElementById('myChart2').getContext('2d');
     //                 var Chart = new Chart(ctx, {

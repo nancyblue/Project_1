@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
   <meta charset="utf-8">
+  <!-- Makes the Chrome device simulator work properly -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
   <!-- Link to CSS reset -->
   <link rel="stylesheet" href="assets/css/reset.css">
   <!-- Bootstrap Stylesheet -->
@@ -11,33 +14,33 @@
        font-family: 'Caveat', cursive; -->
   <link href="https://fonts.googleapis.com/css?family=Caveat|Questrial" rel="stylesheet">
   <!-- font-family: 'ABeeZee', sans-serif;
-font-family: 'Fugaz One', cursive;
-font-family: 'Shrikhand', cursive;
-font-family: 'Pacifico', cursive;
-font-family: 'Lato', sans-serif;
-font-family: 'Roboto', sans-serif; -->
+    font-family: 'Fugaz One', cursive;
+    font-family: 'Shrikhand', cursive;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif; -->
   <link href="https://fonts.googleapis.com/css?family=ABeeZee|Fugaz+One|Lato|Pacifico|Roboto|Shrikhand" rel="stylesheet">
+
   <!-- Adobe Fonts Link -->
   <link rel="stylesheet" href="https://use.typekit.net/slz6uik.css">
+
   <!-- JavaScript for Bootstrap -->
-   <!-- jQuery link -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-   <!-- Hello There! -->
-  <!-- Link to CSS style sheet -->
+  <!-- jQuery link -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <!-- Hello There! -->
+  <!-- Link to CSS style sheets -->
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/post-search.css">
   <title></title>
 </head>
+
 <body>
-  <!-- <div class="container-fluid">
-    <nav class="navbar navbar-expand-lg">
-      <h1 id="logo">TrailFolk</h1>
-    </nav>
-  </div> -->
+
+  <!-- NavBar HTML -->
   <nav>
-    <h1>TrailFolk <span id = "cityName"></span></h1>
+    <h1>TrailFolk <span id="cityName"></span></h1>
     <div class="navSearchItems">
       <a id="nav-item" href="#">Search</a>
       <a id="nav-item" href="#weatherJump">Weather</a>
@@ -46,8 +49,12 @@ font-family: 'Roboto', sans-serif; -->
       <a id="nav-item" href="#chartsJump">Charts</a>
     </div>
   </nav>
+
+  <!-- This jumbotron provides the background for the home page and holds the search ffomr -->
   <div class="jumbotron jumbotron-fluid" id="bg-fill">
     <h1 id="main-message">Start Your Journey Today..</h1>
+
+    <!-- The primary form that takes in user data -->
     <div class="form">
       <div class="form-section-large">
         <label for="cityData">City</label>
@@ -70,67 +77,49 @@ font-family: 'Roboto', sans-serif; -->
         <input type="date" class="hero-input-box" id="endDateData">
       </div>
       <a href="#unique-identifier">
-      <button type="submit" value="Submit" id="submit-button" name="button">Submit</button>
-      <!-- <input id="submit-button" type="submit" value="Submit"> -->
+        <button type="submit" value="Submit" id="submit-button" name="button">Submit</button>
       </a>
     </div>
+
+    <!-- This is the container that holds the buttons for the search history -->
     <div class="form" id="favoriteSearches">
       <h2>History of Searches</h2>
       <div id="favoriteSearchesButtons">
       </div>
     </div>
   </div>
-  <!-- Make this appear by using id bg-fill -->
+
+  <!-- This container holds all of the body content containers -->
   <div class="body-content">
     <a name="unique-identifier">
-    <h1 id="details-header">Your Trip Details</h1>
+      <h1 id="details-header">Your Trip Details</h1>
     </a>
-    <!-- side navigation -->
-    <!-- <nav class="nav flex-column" id="sideNav">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" id="sideNav-city"></a>
-        <a class="nav-link active" href="#">Search</a>
-        <a class="nav-link" href="#weatherJump">Weather</a>
-        <a class="nav-link" href="#hikingJump">Hiking Trails</a>
-        <a class="nav-link" href="#bikingJump">Biking Trails</a>
-        <a class="nav-link" href="#chartsJump">Charts</a>
-      </nav> -->
-    <!-- <div class="favoriteContainer">
-      <div class="trailContainer">
-        <h2 class="results-header">Favorites</h2>
-      </div>
-    </div> -->
     <div class="app-container">
-      <div class="trailContainer">
+
+      <!-- This container holds the weather forecast -->
+      <div class="trailContainer" id="weatherForecast">
         <a name="weatherJump">
-        <h2 class="results-header">Weather Forecast</h2>
-      </a>
-          <div class="trailData">
-            <div class="body-container box">
-              <div class="trail-flexbox" id="weatherTarget">
-                <div id="populate-future-weather-1"></div>
-                <div id="populate-future-weather-2"></div>
-                <div id="populate-future-weather-3"></div>
-                <div id="populate-future-weather-4"></div>
-                <div id="populate-future-weather-5"></div>
-                <div id="populate-future-weather-6"></div>
-                <div id="populate-future-weather-7"></div>
-              </div>
+          <h2 class="results-header">Weather Forecast</h2>
+        </a>
+        <div class="trailData">
+          <div class="body-container box">
+            <div class="trail-flexbox weather" id="weatherTarget">
+              <div id="populate-future-weather-1"></div>
+              <div id="populate-future-weather-2"></div>
+              <div id="populate-future-weather-3"></div>
+              <div id="populate-future-weather-4"></div>
+              <div id="populate-future-weather-5"></div>
+              <div id="populate-future-weather-6"></div>
+              <div id="populate-future-weather-7"></div>
             </div>
           </div>
+        </div>
       </div>
-      <!-- <div class="trailContainer">
-        <h2 class="results-header">Israel's Playground</h2>
-          <div class="trailData">
-            <div class="body-container box">
-              <div class="trail-flexbox">
-                <div id="recentSearch"></div>
-              </div>
-            </div>
-          </div>
-      </div> -->
+
+      <!-- Conainer for hiking trail recommendations -->
       <div class="trailContainer">
-          <a name="hikingJump">
-        <h2 class="results-header">Hiking Trail Recommendations</h2>
+        <a name="hikingJump">
+          <h2 class="results-header">Hiking Trail Recommendations</h2>
         </a>
         <div class="trailData">
           <div class="body-container box" id="populateHikes">
@@ -139,22 +128,20 @@ font-family: 'Roboto', sans-serif; -->
           </div>
         </div>
       </div>
-      <div class="trailContainer">
-          <a name="chartsJump">
-        <h2 class="results-header">Hiking Charts</h2>
-        <div class="chartContainer">
-          <canvas id="hikingCanvas" width="100%" height="300px"></canvas>
-        </div>
-      </div>
-      <div class="trailContainer">
-          <h2 class="results-header">Nancy's Playground</h2>
+
+      <!-- Chart about Hiking Trail ascents and decents -->
+      <div class="trailContainer" id="hikingContainer">
+        <a name="chartsJump">
+          <h2 class="results-header">Hiking Charts</h2>
           <div class="chartContainer">
-            <canvas id="polarChart" width="100%" height="300px"></canvas>
+            <canvas id="hikingCanvas" width="100%" height="300px"></canvas>
           </div>
-        </div>
+      </div>
+
+      <!-- Biking Container -->
       <div class="trailContainer">
         <a name="bikingJump">
-        <h2 class="results-header">Biking Trail Recommendations</h2>
+          <h2 class="results-header">Biking Trail Recommendations</h2>
         </a>
         <div class="trailData">
           <div class="body-container box" id="populateBikes">
@@ -165,43 +152,7 @@ font-family: 'Roboto', sans-serif; -->
       </div>
     </div>
   </div>
-    <!-- <div class="sidebar">
-      <div class="edit-parameters">
-        <div class="sidebar-form">
-          <div class="sidebar-form-text">
-            <label for="cityData">City</label>
-            <input type="text" class="sidebar-imput-box" id="cityData">
-          </div>
-        </div>
-        <div class="sidebar-form">
-          <div class="sidebar-form-text">
-            <label for="searchRadiusData">Search Radius</label>
-            <input type="number" class="sidebar-imput-box" id="searchRadiusData">
-          </div>
-        </div>
-        <div class="sidebar-form">
-          <div class="sidebar-form-text">
-            <label for="searchRadiusData">Zip Code</label>
-            <input type="number" class="sidebar-imput-box" id="zipCodeData">
-          </div>
-        </div>
-        <div class="sidebar-form">
-          <div class="sidebar-form-text">
-            <label for="startDateData">Start Date</label>
-            <input type="date" class="sidebar-imput-box" id="startDateData">
-          </div>
-        </div>
-        <div class="sidebar-form">
-          <div class="sidebar-form-text">
-            <label for="endDateData">End Date</label>
-            <input type="date" class="sidebar-imput-box" id="endDateData">
-          </div>
-        </div>
-        <input id="submit-button-two" type="submit" value="Submit">
-      </div>
-      <div class="searchHistory">
-      </div>
-    </div> -->
+
   <!-- JS app link -->
   <script src="https://rawgithub.com/darkskyapp/skycons/master/skycons.js"></script>
   <script src="https://momentjs.com/downloads/moment.js"></script>
@@ -211,4 +162,5 @@ font-family: 'Roboto', sans-serif; -->
   <!-- Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 </body>
+
 </html>
