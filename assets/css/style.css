@@ -148,6 +148,7 @@ nav h1 {
   align-items: center;
   flex-direction: column;
   padding: 0;
+  /* padding-top: 100px; */
 }
 
 /* #bg-fill {
@@ -349,4 +350,42 @@ input {
   margin:0px !important;
   padding: 20px;
   border-radius: 0 0 15px 15px;
+}
+
+/* Tablet Media Query */
+@media only screen and (max-width: 950px) {
+  #hikingContainer {
+   display: none;
+ }
+
+ nav {
+   justify-content: center;
+ }
+
+ nav h1 {
+   padding-left: 0;
+ }
+
+ .navSearchItems {
+   display: none;
+ }
+
+ .jumbotron {
+   height: 130vh;
+ }
+
+ .form {
+   width: 90%;
+ }
+
+ #weatherTarget {
+   flex-wrap: wrap;
+ }
+
+ #populate-future-weather-1, #populate-future-weather-2, #populate-future-weather-3,#populate-future-weather-4,#populate-future-weather-5,#populate-future-weather-6,#populate-future-weather-7 {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   margin: 10px;
+ }
 }
