@@ -223,6 +223,10 @@
   text-align: center;
 }
 
+/* #populate-current-weather:nth-child(1), #populate-future-weather-1:nth-child(1), #populate-future-weather-2:nth-child(1), #populate-future-weather-3:nth-child(1),#populate-future-weather-4,#populate-future-weather-5,#populate-future-weather-6,#populate-future-weather-7 {
+  font-weight: bold;
+} */
+
 #populate-current-weather {
   display: none;
 }
@@ -234,4 +238,9 @@
 
 #weatherTarget {
   flex-wrap: nowrap;
+}
+
+#hikingCanvas {
+  background-color: white;
+  border-radius: 0 0 15px 15px;
 }

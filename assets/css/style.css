@@ -88,7 +88,7 @@ body {
 /* Nav Styling */
 nav {
   background-color: forestgreen;
-  /* height: 75px; */ 
+  /* height: 75px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
