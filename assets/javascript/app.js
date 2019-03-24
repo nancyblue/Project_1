@@ -311,7 +311,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather1);
 
             var day1Converted = moment(startDate, dateFormat).format('MMM Do');
-            $("#populate-future-weather-1").prepend(day1Converted + "<br>");
+            $("#populate-future-weather-1").prepend("<div class='date'>" + day1Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon1",
@@ -320,9 +320,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-1").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon1", response.daily.data[0].icon);
@@ -345,7 +345,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather2);
 
             var day2Converted = moment(startDate, dateFormat).add(1, 'days').format('MMM Do');
-            $("#populate-future-weather-2").prepend(day2Converted + "<br>");
+            $("#populate-future-weather-2").prepend("<div class='date'>" + day2Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon2",
@@ -354,9 +354,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-2").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon2", response.daily.data[0].icon);
@@ -379,7 +379,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather3);
 
             var day3Converted = moment(startDate, dateFormat).add(2, 'days').format('MMM Do');
-            $("#populate-future-weather-3").prepend(day3Converted + "<br>");
+            $("#populate-future-weather-3").prepend("<div class='date'>" + day3Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon3",
@@ -388,9 +388,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-3").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon3", response.daily.data[0].icon);
@@ -413,7 +413,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather4);
 
             var day4Converted = moment(startDate, dateFormat).add(3, 'days').format('MMM Do');
-            $("#populate-future-weather-4").prepend(day4Converted + "<br>");
+            $("#populate-future-weather-4").prepend("<div class='date'>" + day4Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon4",
@@ -422,9 +422,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-4").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon4", response.daily.data[0].icon);
@@ -447,7 +447,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather5);
 
             var day5Converted = moment(startDate, dateFormat).add(4, 'days').format('MMM Do');
-            $("#populate-future-weather-5").prepend(day5Converted + "<br>");
+            $("#populate-future-weather-5").prepend("<div class='date'>" + day5Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon5",
@@ -456,9 +456,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-5").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon5", response.daily.data[0].icon);
@@ -481,7 +481,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather6);
 
             var day6Converted = moment(startDate, dateFormat).add(5, 'days').format('MMM Do');
-            $("#populate-future-weather-6").prepend(day6Converted + "<br>");
+            $("#populate-future-weather-6").prepend("<div class='date'>" + day6Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon6",
@@ -490,9 +490,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-6").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon6", response.daily.data[0].icon);
@@ -515,7 +515,7 @@ $(document).ready(function () {
             $("#weatherTarget").append(weather7);
 
             var day7Converted = moment(startDate, dateFormat).add(6, 'days').format('MMM Do');
-            $("#populate-future-weather-7").prepend(day7Converted + "<br>");
+            $("#populate-future-weather-7").prepend("<div class='date'>" + day7Converted + "</div><br>");
 
             var canvasAttr = {
                 id: "icon7",
@@ -524,9 +524,9 @@ $(document).ready(function () {
             }
             var icon = $("<canvas>").attr(canvasAttr);
 
-            var maxTemp = $("<span>").append("  &nbsp;  &nbsp;  High: " + Math.round(response.daily.data[0].temperatureMax) + "°F");
-            var minTemp = $("<span>").append("  &nbsp;  &nbsp;  Low: " + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
-            var dailySummary = $("<span>").append(response.daily.data[0].summary);
+            var maxTemp = $("<span class='maxTemp'>").append("  &nbsp;  &nbsp;  High:" + Math.round(response.daily.data[0].temperatureMax) + "°F");
+            var minTemp = $("<span class='minTemp'>").append("  &nbsp;  &nbsp;  Low:" + Math.round(response.daily.data[0].temperatureMin) + "°F <br>");
+            var dailySummary = $("<span class='summary'>").append(response.daily.data[0].summary);
 
             $("#populate-future-weather-7").append(icon).append(maxTemp).append(minTemp).append(dailySummary);
             skycons.add("icon7", response.daily.data[0].icon);
